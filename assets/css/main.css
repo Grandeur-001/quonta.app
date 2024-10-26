@@ -105,6 +105,7 @@ body{
     top: 0;
     font-family: PRO-FONT3;
     background: var(--color-three-darkblue);
+    display: none;
 
 
 
@@ -1578,9 +1579,76 @@ body{
 }
 
 .footer_links > .wrapper  .card:nth-of-type(3){
-    /* border: 2px solid red; */
     width: 100%;
 }
+
+
+.earning_notification{
+    display: flex;
+    position: fixed;
+    z-index: 29000;
+    top: 20%;
+    margin-left: 20px;
+    /*border: 2px solid red;
+    */background:  var(--color-three-darkblue2);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    cursor: pointer;
+    -webkit-animation: alertSlide 4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+
+}
+@keyframes alertSlide {
+    0% {
+      transform: translateX(-100%);/*Startoffthepage*/
+      opacity: 0;
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+}
+    10% {
+      transform: translateX(0); /* Slide into view */
+      opacity: 1;
+    }
+    85% {
+      transform: translateX(0); /* Stay in view */
+      opacity: 1;
+    }
+    95% {
+      transform: translateX(-100%);
+      /*Slideoutofview*/opacity: 0;
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+}
+    100% {
+      transform: translateX(-100%);
+      /*Completelyoutofview*/opacity: 0;
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+}
+  }
+  
+
+.earning_notification > .wrapper{
+    /*height: 100px;
+    *//*width: 200px;
+    */display: flex;
+    padding-inline: 10px 30px;
+    padding-block: 10px 15px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--color-five-white);
+}
+
+
 
 
 
@@ -1618,9 +1686,9 @@ body{
  }
  .preloader_animation > .wrapper > .logo .image_wrapper img{
     max-width: 100%;
-    animation: zoom 2s ease-in-out infinite;
-
- }
+    animation: zoom 6s ease-in-out infinite;
+    -webkit-animation: zoom 6s ease-in-out infinite;
+}
  @keyframes zoom {
     0%{
         transform: scale(1);

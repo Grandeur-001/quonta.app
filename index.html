@@ -12,9 +12,11 @@
 
     <!-- ============CSS-LINKS============= -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="/assets/responsive-navbar-2-main/assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/main-mediaquery.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
 
 
 
@@ -27,7 +29,7 @@
     <div class="scroll_watcher"></div>
 
     <!-- ============GOOGLE-LANGUAGE-TRANSLATOR============= -->
-    <section class="google-translator">
+    <section class="google-translator" style="display: none;">
         <div>
             <!-- GTranslate: https://gtranslate.io/ -->
                 <style type="text/css">
@@ -140,7 +142,7 @@
                                 <li><a class="links" href="contact.html">contact us</a></li>
                         </ul>
                     </li>
-                    <li><a class="links" href="login.html">login</a></li>
+                    <li><a class="links" href="login.html">Login</a></li>
                     <li><a class="links" href="signup.html">signup</a></li>
                 </ul>
             </nav>
@@ -163,44 +165,46 @@
         </div>
     </div>
 
-
     
     <!-- ============ MOBILE-NAVIGATION-BAR============= -->
     <section class="mobile_navbar">
-    <div class="wrapper">
-        <ul>
-            <li>
-                <a class="links" href="index.html">
-                    <img src="assets/svg/home-1-svgrepo-com.svg" alt="">
-                </a>
-            </li>
+        <div class="wrapper">
+            <ul>
+                <li>
+                    <a class="links" href="index.html">
+                        <img src="assets/svg/home-1-svgrepo-com.svg" alt="">
+                    </a>
+                </li>
 
-            <li>
-                <a class="links" href="about.html"> 
-                    <img src="assets/svg/about-svgrepo-com.svg" alt="">
-                </a>
-            </li> 
+                <li>
+                    <a class="links" href="about.html"> 
+                        <img src="assets/svg/about-svgrepo-com.svg" alt="">
+                    </a>
+                </li> 
 
-            <li>
-                <a>
-                    <img src="assets/svg/support-svgrepo-com.svg" alt="">
-                </a>
-            </li>  
+                <li>
+                    <a>
+                        <img src="assets/svg/support-svgrepo-com.svg" alt="">
+                    </a>
+                </li>  
 
-            <li>
-                <a class="links" href="login.html">
-                    <img src="assets/svg/login-svgrepo-com (1).svg" alt="">
-                </a>
-            </li>
-            
-            <li>
-                <a class="links" href="signup.html">
-                    <img src="assets/svg/registration-svgrepo-com.svg" alt="">
-                </a>
-            </li>
-        </ul>
-    </div>
+                <li>
+                    <a class="links" href="login.html">
+                        <img src="assets/svg/login-svgrepo-com (1).svg" alt="">
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="links" href="signup.html">
+                        <img src="assets/svg/registration-svgrepo-com.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
     </section>
+
+
+
     <!-- ============ MOBILE-NAVIGATION-BAR END HERE============= -->
 
 
@@ -1075,7 +1079,23 @@
 
 
 
-
+    <section class="earning_notification" onclick="location.href=`login.html`">
+        <div class="wrapper">
+            <div class="notification_btc_logo">
+                <img src="/assets/svg/bitcoin-btc-logo.svg" alt="">
+            </div>
+            <div class="notification-text-block">
+                <div class="notification_title">
+                    <b>Earning</b>
+                </div>
+                <div class="notification_text">
+                    <span class="name">Henry </span> From
+                    <span class="country">Morocco </span><br> has just earned
+                    <b class="amount">$3988</b>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <!-- ============ PRELOADER ANIMATION============= -->
@@ -1141,6 +1161,7 @@
 
     <!-- ============JAVASCRIPT-LINKS============= -->
     <script src="assets/javascript/function.js"></script>
+    <script src="assets/responsive-navbar-2-main/assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="assets/javascript/typed.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

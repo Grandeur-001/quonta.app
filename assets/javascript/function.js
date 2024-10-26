@@ -5,11 +5,13 @@ const mobileNavbar = document.querySelector(`.mobile_navbar`);
 const checkNav = document.querySelector(`#check_nav`);
 const allLinks = document.querySelector('.links');
 const preloaderAnimation = document.querySelector(`.preloader_animation`)
+const mobileNavigation = document.querySelector(`.navigation_wrapper`);
 
 
 
 
 checkNav.addEventListener(`click`, () => {
+	
 	if(checkNav.checked){
 		hamBurger.classList.add('is-active');
 		mobileNavbar.style.setProperty(
@@ -20,6 +22,8 @@ checkNav.addEventListener(`click`, () => {
 			'transition',
 			'0.6s cubic-bezier(0.23, 1, 0.32, 1)'
 		);
+
+		
 	}else {
 		hamBurger.classList.remove('is-active');
 		mobileNavbar.style.setProperty(
@@ -31,6 +35,8 @@ checkNav.addEventListener(`click`, () => {
 			'transition',
 			'1s'
 		);
+
+
 	};
 
 });
@@ -190,4 +196,16 @@ document.onkeydown = function(e) {
     }
 };
 
+
+const countriesArray = [
+    "Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon", "Central African Republic", "Chad",
+    "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon",
+    "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Ivory Coast", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar",
+    "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda",
+    "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Tanzania", "Togo",
+    "Tunisia", "Uganda", "Zambia", "Zimbabwe","Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Canada", "Costa Rica", "Cuba", "Dominica", "Dominican Republic", "El Salvador",
+    "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Saint Kitts and Nevis", "Saint Lucia",
+    "Saint Vincent and the Grenadines", "Trinidad and Tobago", "United States","Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana", "Paraguay", "Peru", "Suriname",
+    "Uruguay", "Venezuela"
+];
 
