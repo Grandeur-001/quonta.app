@@ -147,6 +147,12 @@
         grid-template-columns: repeat(2, 1fr);
     }
     
+    .earning_notification{
+        top: 70%;
+        /* scale: 0.77; */
+        margin-left: 10px;
+    }
+    
     
     
     
