@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password, Email, and Phone Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Password, Email, and Phone Validation</h1>
+    <form id="validationForm">
+        <!-- Email -->
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <!-- Phone -->
+        <label for="phone">Enter your phone number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <br><br>
+
+        <!-- Password -->
+        <label for="password">Enter your password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <!-- Confirm Password -->
+        <label for="confirmPassword">Confirm your password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <br><br>
+
+        <button type="submit">Validate</button>
+    </form>
+
+    <div id="message" class="error"></div>
+
+    <script>
+        function validatePassword(password, confirmPassword) {
+            const lengthRegex = /^.{12,}$/;
+            const uppercaseRegex = /[A-Z]/;
+            const lowercaseRegex = /[a-z]/;
+            const numberRegex = /[0-9]/;
+            const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+            const forbiddenSequencesRegex = /(123|abc|password|qwerty|letmein)/i;
+
+            if (password !== confirmPassword) {
+                return 'Passwords do not match.';
+            }
+            if (!lengthRegex.test(password)) {
+                return 'Password must be at least 12 characters long.';
+            }
+            if (!uppercaseRegex.test(password)) {
+                return 'Password must contain at least one uppercase letter.';
+            }
+            if (!lowercaseRegex.test(password)) {
+                return 'Password must contain at least one lowercase letter.';
+            }
+            if (!numberRegex.test(password)) {
+                return 'Password must contain at least one number.';
+            }
+            if (!specialCharRegex.test(password)) {
+                return 'Password must contain at least one special character.';
+            }
+            if (forbiddenSequencesRegex.test(password)) {
+                return 'Password cannot contain common sequences like "123", "abc", "password", etc.';
+            }
+
+            return 'valid';
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailRegex.test(email) ? 'valid' : 'Invalid email format.';
+        }
+
+        function validatePhone(phone) {
+            const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+            return phoneRegex.test(phone) ? 'valid' : 'Invalid phone number. Must be in international format, e.g., +123456789.';
+        }
+
+        document.getElementById('validationForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const messageDiv = document.getElementById('message');
+
+            const emailValidationMessage = validateEmail(email);
+            const phoneValidationMessage = validatePhone(phone);
+            const passwordValidationMessage = validatePassword(password, confirmPassword);
+
+            if (emailValidationMessage !== 'valid') {
+                messageDiv.textContent = emailValidationMessage;
+                messageDiv.className = 'error';
+            } else if (phoneValidationMessage !== 'valid') {
+                messageDiv.textContent = phoneValidationMessage;
+                messageDiv.className = 'error';
+            } else if (passwordValidationMessage !== 'valid') {
+                messageDiv.textContent = passwordValidationMessage;
+                messageDiv.className = 'error';
+            } else {
+                messageDiv.textContent = 'All inputs are valid! Submitting the form...';
+                messageDiv.className = 'success';
+                // location.reload();
+
+                // Uncomment to submit the form to your server//
+                this.submit();
+            }
+        });
+    </script>
+
+</body>
+</html>
