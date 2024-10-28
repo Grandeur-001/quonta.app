@@ -159,7 +159,7 @@
       -webkit-transform: translateX(0);
               transform: translateX(0);
     }
-  }
+}
 .two_form_groups{
     width: 100%;
     display: flex;
