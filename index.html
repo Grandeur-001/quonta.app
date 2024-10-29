@@ -140,8 +140,8 @@
 
                 <ul>
                     <li><a class="links" href="index.html">Home</a></li>
-                    <li><a class="links" href="/index copy.html">about us</a></li>            
-                    <li><a href="">support</a>
+                    <li><a class="links" href="/about">about us</a></li>            
+                    <li><a>support</a>
                         <ul class="sub_menu">
                                 <li><a class="links" href="faq.html">faq</a></li>
                                 <li><a class="links" href="contact.html">contact us</a></li>
@@ -214,7 +214,7 @@
      <!-- ============ HOME PAGE BANNER============= -->
     <section class="home_banner">
         <div class="text_content">
-            <div class="big_text">Safe Investment with <span class="auto-text"></span>For All Market Conditions, Wealth and Investment Management Solutions</div>
+            <div class="big_text">Safe Investment with <span class="auto-text">Quonta Trade </span> For All Market Conditions, Wealth and Investment Management Solutions</div>
             <div class="small_text_wrapper">
                 <div class="small_text">Get Lifetime Income on Investment</div>
                 <div class="small_text">Get Lifetime Income <br>on Investment</div>
@@ -222,22 +222,22 @@
             </div>
         </div>
         
-    <section class="evoloution">
-        <div class="wrapper">
-            <div class="left_axiz">
-                <div class="btn">
-                    <a class="links" href="login.html">Login</a>
-                    <a class="links" href="signup.html">Register</a>
-                </div>
+        <div class="evoloution">
+            <div class="wrapper">
+                <div class="left_axiz">
+                    <div class="btn">
+                        <a class="links" href="login.html">Login</a>
+                        <a class="links" href="signup.html">Register</a>
+                    </div>
 
-                <div class="text">Grow you financial Status with Quonta Trade</div>
+                    <div class="text">Grow you financial Status with Quonta Trade</div>
+                </div>
+                <div class="right_axiz">
+                    <div class="big_text">Our Evolution</div>
+                    <div class="small_text">We believe that bitcoin and blockchain networks are landmarks innovation that will fundamentally reshape the global financial system, and invetsors should be able to participate in this transformation.</div>
+                </div>
             </div>
-            <div class="right_axiz">
-                <div class="big_text">Our Evolution</div>
-                <div class="small_text">We believe that bitcoin and blockchain networks are landmarks innovation that will fundamentally reshape the global financial system, and invetsors should be able to participate in this transformation.</div>
-            </div>
-        </div>
-    </section>   
+        </div>   
     </section>
      <!-- ============ HOME PAGE BANNER END HERE============= -->
 
@@ -595,6 +595,43 @@
             <div class="blog-slider__pagination"></div>
         </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+        <script>
+            let prevWindowWidth = window.innerWidth;  // Track the previous window width
+
+            function initSwiper() {
+            var swiper = new Swiper('.blog-slider', {
+                spaceBetween: 30,
+                effect: 'fade',
+                loop: true,
+                scrollX: true,
+                scrollY: false,
+                mousewheel: false,  // Disable mousewheel scrolling on the main slider
+                pagination: {
+                el: `.blog-slider__pagination`,
+                clickable: true,
+                
+                }
+                
+            });
+
+            // Add a separate mousewheel event listener only to the pagination element
+            const paginationEl = document.querySelector('.swiper-pagination-bullets');
+            paginationEl.addEventListener('', function(e) {
+                e.preventDefault(); // Prevent default scrolling behavior
+
+                // Determine the direction of scroll and navigate the slider accordingly
+                if (e.deltaX > 3) {
+                swiper.slideNext(); // Scroll down to next slide
+                } else {
+                swiper.slidePrev(); // Scroll up to previous slide
+                }
+            });
+            }
+            // Initialize the Swiper on page load 
+            initSwiper();
+
+
+        </script>
     </section>
 
     <section class="section_4">
@@ -1163,8 +1200,7 @@
 
     <!-- ============JAVASCRIPT-LINKS============= -->
     <script src="assets/javascript/function.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="assets/javascript/typed.js"></script>
+    <script src="assets/javascript/earning_alert.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
     <script src="/assets/javascript/node_modules/lodash/lodash.min.js"></script>   
