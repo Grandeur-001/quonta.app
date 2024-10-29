@@ -4,9 +4,8 @@ const hamBurger = document.querySelector(`.hamburger`);
 const mobileNavbar = document.querySelector(`.mobile_navbar`);
 const checkNav = document.querySelector(`#check_nav`);
 const allLinks = document.querySelector('.links');
-const preloaderAnimation = document.querySelector(`.preloader_animation`)
+const preloaderAnimation = document.querySelector(`.preloader_animation`);
 const mobileNavigation = document.querySelector(`.navigation_wrapper`);
-
 
 
 
@@ -18,10 +17,13 @@ checkNav.addEventListener(`click`, () => {
 			'transform',
 			'translateX(+0)'
 		);
+		menuItems.style.opacity = `1`;
+		menuItems.style.transform = `translateX(0)`;
 		mobileNavbar.style.setProperty(
 			'transition',
 			'0.6s cubic-bezier(0.23, 1, 0.32, 1)'
 		);
+	
 
 		
 	}else {
