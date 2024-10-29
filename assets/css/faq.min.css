@@ -321,6 +321,10 @@
   .accordion button .icon {
     scale: 0.77;
   }
+  .accordion .accordion-content p {
+    font-size: 11px;
+  }
+
 
 } 
 
