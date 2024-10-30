@@ -63,6 +63,7 @@
 
 /* ============STYLING AND ANIMATION FOR THE HTML TAG============= */
 html{
+    overscroll-behavior: none;
     scroll-behavior: smooth;
     animation: flash 2s linear;
 }
@@ -70,6 +71,7 @@ html{
 
 /* ============STYLING FOR THE BODY TAG============= */
 body{
+    overscroll-behavior: none;
     min-height: 100vh;
     position: relative;
     background-image: radial-gradient(at top right, var(--color-three-darkblue) 25%, #222633 100%);
@@ -345,30 +347,86 @@ body{
 .mobile_navbar{
     position: fixed;
     top: 170px;
-    /* height: 100vh; */
-    width: 70px;
-    border-radius: var(--border-radius);
+    /*height: 100vh;
+    */width: 70px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
     padding-block-end: 30px;
     box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.406);
     transform: translateX(-50vh);
     background: var(--color-three-darkblue);
-    margin-inline-start: 10px;
-    transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+    /*margin-inline-start: 10px;
+    */transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 10000;
-   
+    overflow-x: hidden;
+    
 }
+.mobile_navbar:hover{
+    width: 160px;
+}
+
 .mobile_navbar .wrapper ul{
     display: flex;
-    gap: 30px;
+    gap: 15px;
     padding-block-start: 30px;
     flex-direction: column;
-    padding-inline-start: 20px;
+    padding-inline-start: 15px;
 
 }
 .mobile_navbar .wrapper ul li{
     list-style: none;
     border-radius: 50%;
     
+}
+.mobile_navbar .wrapper ul li a{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-block: 9px;
+    padding-inline-start: 7px;
+}
+
+.mobile_navbar .wrapper ul li a img{
+    width: 21px;
+    margin-left: 4px;
+}
+.mobile_navbar .wrapper ul li a span{
+    font-family: PRO-FONT3;
+    color: var(--color-five-white);
+    visibility: hidden;
+
+
+}
+.mobile_navbar .wrapper ul li:nth-of-type(1) a{
+    background: #242834;
+    box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.406);
+
+
+}
+.mobile_navbar .wrapper ul li a:hover{
+    background: #242834;
+}
+.mobile_navbar .wrapper ul li:nth-of-type(1)  a span{
+    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.mobile_navbar .wrapper ul li a:hover span{
+    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.mobile_navbar:hover .wrapper ul li a{
+    gap: 14px;
+}
+.mobile_navbar:hover .wrapper ul li a span{
+    visibility: visible;
+
 }
 /* ============STYLING FOR MOBILE NAVBAR END HERE============= //TRANSLATED OUT OF VIEW// */
 

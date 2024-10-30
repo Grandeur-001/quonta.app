@@ -15,7 +15,7 @@ type User struct {
 
 func main() {
 	http.HandleFunc("/users", getUsers)
-	http.listenAndServe(":5501", nil)
+	http.listenAndServe(":8080", nil)
 }
 
 func getUsers(w http.ResponseWriter, r *http.Request){
