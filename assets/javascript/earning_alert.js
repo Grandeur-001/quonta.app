@@ -57,3 +57,4 @@ setInterval(() => {
 }, 4000);
 
 
+// go install -v golang.org/x/tools/gopls@latest"
