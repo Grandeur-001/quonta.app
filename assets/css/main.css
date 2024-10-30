@@ -1640,10 +1640,12 @@ body{
 
 .earning_notification{
     display: flex;
+    scale: 0.7;
     position: fixed;
+    left: -30px;
     z-index: 29000;
     top: 20%;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     /*border: 2px solid red;
     */background:  var(--color-three-darkblue2);
     border-radius: 5px;

@@ -102,16 +102,13 @@ signUpform.addEventListener(`submit`, (form_event) => {
     }
     else {
         preloaderAnimation.classList.add(`show_preloader`);
-        setTimeout(() => {
-            preloaderAnimation.classList.remove(`show_preloader`);
-            // window.location.href = "login.html";
-        }, 6000);
+
         setTimeout(() => {
             preloaderAnimation.classList.remove(`show_preloader`);
             window.location.href = "login.html";
-        }, 4000);
-        }
-
+        },
+        6000);
+    }
         form_event.preventDefault();
 
 });
