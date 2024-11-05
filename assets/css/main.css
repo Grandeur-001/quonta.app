@@ -216,7 +216,8 @@ body{
 
 
 /* ============STYLING FOR DESKTOP NAVBAR **CONTINUES HERE** ============= */
-.desktop_navbar .wrapper > nav .logo{
+.desktop_navbar .wrapper > nav .logo, 
+.footer .logo{
     height: 100%;
     display: flex;
     align-items: center;
@@ -224,15 +225,18 @@ body{
 
 
 }
-.desktop_navbar .wrapper > nav .logo .logo_wrapper{
+.desktop_navbar .wrapper > nav .logo .logo_wrapper, 
+.footer .logo .logo_wrapper{
     height: 60px;
     width: 60px;
     margin-inline-start: 30px;
 }
-.desktop_navbar .wrapper > nav .logo .logo_wrapper img{
+.desktop_navbar .wrapper > nav .logo .logo_wrapper img, 
+.footer .logo .logo_wrapper img{
     max-width: 100%;
 }
-.desktop_navbar .wrapper > nav .logo .logo_name{
+.desktop_navbar .wrapper > nav .logo .logo_name, 
+.footer .logo .logo_name{
     color: var(--color-five-white);
     font-family: LOGO-FONT;
     font-size: 20px;
@@ -1562,6 +1566,12 @@ body{
     padding: 70px 10px;
     font-family: PRO-FONT1;
 
+}
+.footer .logo{
+    margin-block: 30px;
+}
+.footer .logo .logo_wrapper{
+    margin-inline-start: 15px;
 }
 .footer > .wrapper{
     display: grid;
