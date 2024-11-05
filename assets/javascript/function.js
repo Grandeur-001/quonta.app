@@ -9,6 +9,7 @@ const mobileNavigation = document.querySelector(`.navigation_wrapper`);
 
 
 
+
 checkNav.addEventListener(`click`, () => {
 	
 	if(checkNav.checked){

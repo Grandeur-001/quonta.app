@@ -106,9 +106,15 @@ signUpform.addEventListener(`submit`, (form_event) => {
         setTimeout(() => {
             preloaderAnimation.classList.remove(`show_preloader`);
             window.location.href = "login.html";
-        },
-        6000);
+        },6000);
     }
         form_event.preventDefault();
-
 });
+
+    
+
+
+
+
+
+

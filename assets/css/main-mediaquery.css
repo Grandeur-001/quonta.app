@@ -14,6 +14,11 @@
         flex-direction: row-reverse;
         padding-inline-end: 20px;
     }
+    .desktop_navbar .wrapper > nav .check_nav_wrapper{
+        display: block; 
+        opacity: 0;
+    }
+    
     .desktop_navbar .wrapper > nav .hamburger{
         display: block;
     }
@@ -24,13 +29,15 @@
     }
 
     .desktop_navbar .wrapper > nav .logo .logo_wrapper{
-        height: 46px;
-        width: 46px;
+        height: 43px;
+        width: 43px;
         margin-inline-start: 24px;
 
     }
     .desktop_navbar .wrapper > nav .logo .logo_name{
-        display: none;
+        /* display: none; */
+        font-size: 18px;
+
     }
 
     .home_banner .text_content .big_text{
@@ -142,15 +149,22 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-
-    .main_footer .wrapper .footer_links > .wrapper{
+    .footer > .wrapper{
         grid-template-columns: repeat(2, 1fr);
     }
+    
+
+    
+    .footer-card{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+
+
     
     .earning_notification{
         top: 70%;
         /* scale: 0.77; */
-        margin-left: 10px;
     }
     
     
@@ -201,12 +215,12 @@
         width: 280px;
     }
 
-    .main_footer{
-        padding: 30px;
-    }
-    
-    .main_footer .wrapper .footer_links > .wrapper{
+    .footer > .wrapper{
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .footer-card{
+        width: 100%;
     }
     
     
@@ -214,6 +228,10 @@
 
 
 @media only screen and (max-width: 330px) {
+    .desktop_navbar .wrapper > nav .logo .logo_name{
+        display: none;
+    }
+
     .mobile_navbar{
         scale: 0.60;
         top: 110px;

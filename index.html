@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 
 
@@ -31,7 +32,8 @@
 
 <body>
     <!-- ============SCROLL WATCHER============= -->
-    <div class="scroll_watcher"></div>
+    <div class="scroll_watcher "></div>
+
 
     <!-- ============GOOGLE-LANGUAGE-TRANSLATOR============= -->
     <section class="google-translator" style="display: none;">
@@ -121,7 +123,7 @@
     <header id="desktop_navbar" class="desktop_navbar">
         <div class="wrapper">
             <nav>
-                <div style="z-index: 3; opacity: 0; cursor: pointer; position: absolute; height: 50px; width: 50px; background-color: red;">
+                <div class="check_nav_wrapper">
                     <input type="checkbox" name="" id="check_nav" style="cursor: pointer;">
                 </div>
                     <div class="hamburger" id="hamburger-6">
@@ -130,13 +132,13 @@
                       <span class="line"></span>
                     </div>
 
-                <div class="logo">
-                    <div class="logo_wrapper" onclick="location.href=`index.html`">
-                        <img src="/assets/images/logo.png" alt="">
+                    <div class="logo">
+                        <div class="logo_wrapper">
+                            <img src="/assets/images/logo.png" alt="">
+                        </div>
+    
+                        <div class="logo_name links">Quonta Trade</div>
                     </div>
-
-                    <div class="logo_name">Quonta Trade</div>
-                </div>
 
                 <ul>
                     <li><a class="links" href="index.html">Home</a></li>
@@ -197,7 +199,7 @@
     
                 <li>
                     <a class="links" href="login.html">
-                        <img src="assets/svg/login-svgrepo-com (1).svg" alt="">
+                        <img src="assets/svg/login-svgrepo-com (1).svg" alt="">                  
                         <span>Login</span>
                     </a>
                 </li>
@@ -993,102 +995,53 @@
 
 
     <!-- ============ FOOTER SECTION ============= -->
-    <footer class="main_footer">
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <div class="image_wrapper">
-                        <img src="/assets/images/logo.png" alt="">
-                    </div>
+
+    <footer class="footer">
+            <div class="wrapper">
+                <div class="footer-card">
+                    <h4>company</h4>
+                    <ul>
+                        <span>
+                            We remain true to the same principles on which our company was founded : providing superior services to our clients, putting safety first, creating opportunities for our people.
+                        </span>
+                    </ul>
                 </div>
-
-                <div class="text">
-                    <span>
-                        Quonta Trade connects traders, exchanges, institutions, and DeFi platforms with democratized access to the best-in-class liquidity and trading execution at low cost.
-                    </span>
-                    <span>
-                        We remain true to the same principles on which our company was founded : providing superior services to our clients, putting safety first, creating opportunities for our people.
-                    </span>
+                <div class="footer-card">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a class="links" href="/index.html">Home</a></li>
+                        <li><a class="links" href="/faq.html">FAQ</a></li>
+                        <li><a class="links" href="/contact.html">Contact</a></li>
+                        <li><a class="links" href="/login.html">Login</a></li>
+                    </ul>
                 </div>
-            </header>
+                <div class="footer-card">
+                    <h4>who we are</h4>
+                    <ul>
+                        <li><a class="links" href="/about.html">About</a></li>
+                        <li><a class="links" href="#">purposes and values</a></li>
+                     
 
-            <div class="footer_links">
-                <div class="wrapper">
-                    <div class="card">
-                        <div class="wrapper">
-                            <h4>WHO WE ARE</h4>
-                            <ul>
-                                <li>
-                                    <a class="links" href="about.html">
-                                        <span class="dash"></span>
-                                        <samp>ABOUT US</samp>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="links" href="">
-                                        <span class="dash"></span>
-                                        <samp>PURPOSE AND VALUES</samp>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="wrapper">
-                            <h4>QUICK LINKS</h4>
-                            <ul>
-                           
-                                <li>
-                                    <a class="links" href="index.html">
-                                        <span class="dash"></span>
-                                        <samp>HOME</samp>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="links" href="faq.html">
-                                        <span class="dash"></span>
-                                        <samp>FAQ</samp>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="links" href="contact.html">
-                                        <span class="dash"></span>
-                                        <samp>CONTACT</samp>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="links" href="login.html">
-                                        <span class="dash"></span>
-                                        <samp>LOGIN</samp>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="links" href="signup.html">
-                                        <span class="dash"></span>
-                                        <samp>REGISTER</samp>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="wrapper">
-                            <h4>CERTIFICATE OF REGISTRATION</h4>
-                            
-                        </div>
+                    </ul>
+                </div>
+                <div class="footer-card">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
 
                     </div>
+                    <ul>
+                        <li><a class="signup" href="/signup.html">Sign up</a></li>
+
+                    </ul>
+
                 </div>
             </div>
-        </div>
-    </footer>
+   </footer>
+ 
     
 
 
@@ -1121,7 +1074,7 @@
 
 
 
-
+    <!-- ============ EARNING NOTIFICATION============= -->
     <section class="earning_notification" onclick="location.href=`login.html`">
         <div class="wrapper">
             <div class="notification_btc_logo">
@@ -1139,6 +1092,10 @@
             </div>
         </div>
     </section>
+
+
+
+
 
 
     <!-- ============ PRELOADER ANIMATION============= -->
@@ -1208,6 +1165,8 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
     <script src="/assets/javascript/node_modules/lodash/lodash.min.js"></script>   
+
+
 
 
 </html>
