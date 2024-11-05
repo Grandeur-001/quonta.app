@@ -323,7 +323,7 @@ body{
 
 }
 
-.desktop_navbar .wrapper > nav > ul > li:nth-of-type(5) > a,.footer-card .signup{
+.desktop_navbar .wrapper > nav > ul > li:nth-of-type(5) > a{
     padding-inline: 45px;
     padding-block: 15px;
     background: var(--color-three-darkblue);
@@ -344,7 +344,7 @@ body{
     transition: all 0.5s ease;
 
 }
-.desktop_navbar .wrapper > nav > ul > li:nth-of-type(5) > a:after,.footer-card .signup:after{
+.desktop_navbar .wrapper > nav > ul > li:nth-of-type(5) > a:after{
     box-shadow: var(--box-shadow);
     content: '';
     position: absolute;
@@ -358,7 +358,7 @@ body{
 
 }
 
-.desktop_navbar .wrapper > nav > ul > li:nth-of-type(5):hover a, .footer-card .signup:hover{
+.desktop_navbar .wrapper > nav > ul > li:nth-of-type(5):hover a{
     background: radial-gradient(at top left, var(--color-five-white) 30%, var(--color-five-white) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1562,7 +1562,7 @@ body{
 
 /* ============FOOTER SECTION============= */
 .footer{
-	background-color: transparent;
+	background-color: black;
     padding: 70px 10px;
     font-family: PRO-FONT1;
 
@@ -1584,7 +1584,7 @@ body{
 	font-size: 18px;
 	color: var(--color-five-white);
 	text-transform: capitalize;
-	margin-bottom: 35px;
+	margin-bottom: 15px;
 	font-weight: 500;
 	position: relative;
 }
@@ -1597,6 +1597,7 @@ body{
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
+    display: none;
 }
 .footer-card  ul li{
     list-style: none;
@@ -1628,25 +1629,35 @@ body{
 	display: inline-block;
 	height: 40px;
 	width: 40px;
-	background-color: var(--color-four-gray);
+	background-color: var(--color-five-white);
 	margin:0 10px 10px 0;
 	text-align: center;
 	line-height: 40px;
 	border-radius: 50%;
-	color: var(--color-five-white);
+	color: var(--color-three-darkblue);
 	transition: all 0.5s ease;
 }
 .footer-card .social-links a:hover{
 	color: var(--color-five-white);
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: var(--color-three-darkblue);
 
 }
 .footer-card .signup{
+    padding-block: 15px;
+    text-align: center;
     width: 150px;
+    border-radius: 30px;
     margin-top: 30px;
-    color: white;
+    color: var(--color-five-white);
+    box-shadow: inset 0 0 0 2px var(--color-five-white);
 }
+.footer-card .signup:hover{
+    background: var(--color-five-white);
+    box-shadow: inset 0 0 0 0px var(--color-five-white);
+    color: var(--color-three-darkblue);
 
+
+}
 
 /* Notification Styles */
 .earning_notification .notification {
