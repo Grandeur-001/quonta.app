@@ -25,9 +25,19 @@
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
 
-    <!-- ============JAVASCRIPTLINKS============= -->
-    <!-- <script defer src="/assets/javascript/navbar.min.js"></script> -->
-
+        <!-- ============JAVASCRIPTLINKS============= -->
+        <!-- Smartsupp Live Chat script -->
+        <script type="text/javascript">
+            var _smartsupp = _smartsupp || {};
+            _smartsupp.key = 'd3650f3e8435103dd307f14927f59672b3116a5d';
+            window.smartsupp||(function(d) {
+            var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+            s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+            c.type='text/javascript';c.charset='utf-8';c.async=true;
+            c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+            })(document);
+        </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
 </head>
 
 <body>
@@ -281,7 +291,8 @@
 
     <br><br>
 
-        <div style="width: 100%; height: 500px;"><style>
+        <div style="width: 100%; height: 500px;">
+            <style>
             .tradingview-widget-copyright {
                 font-size: 13px !important;
                 line-height: 32px !important;
@@ -984,7 +995,7 @@
         </div>
     </section>
 
-    <div data-aos="fade-up" style="height:560px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #40871d; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #40871d;padding:1px;padding: 0px; margin: 0px; width: 100%;">
+    <div data-aos="fade-up" style="height:560px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: ; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #40871d;padding:1px;padding: 0px; margin: 0px; width: 100%;">
         <div style="height:540px; padding:0px; margin:0px; width: 100%;">
             <!-- <iframe src="https://www.ameritstrade.org/temp/custom/video3.mp4" frameborder="0"></iframe> -->
             <iframe src="https://widget.coinlib.io/widget?type=chart&amp;theme=dark&amp;coin_id=859&amp;pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
@@ -995,14 +1006,15 @@
 
 
     <!-- ============ FOOTER SECTION ============= -->
-
     <footer class="footer">
             <div class="logo">
-                <div class="logo_wrapper">
-                    <img src="/assets/images/logo.png" alt="">
-                </div>
-
-                <div class="logo_name links">Quonta Trade</div>
+                <a href="/index.html" class="links" style="display: flex; align-items: center; gap: 20px; text-decoration: none;">
+                    <div class="logo_wrapper">
+                        <img src="/assets/images/logo.png" alt="">
+                    </div>
+    
+                    <div class="logo_name" onclick>Quonta Trade</div>
+                </a>
             </div>
             <div class="wrapper">
                 <div class="footer-card">
@@ -1041,13 +1053,13 @@
 
                     </div>
                     <ul>
-                        <li><a class="signup" href="/signup.html">Sign up</a></li>
+                        <li><a class="signup links" href="/signup.html">Sign up</a></li>
 
                     </ul>
 
                 </div>
             </div>
-   </footer>
+    </footer>
  
     
 
@@ -1129,7 +1141,7 @@
                   Content: '<b>[Varible1]</b> from <b>[Varible2]</b> has just earned <b>$[Amount]</b>.',
                   DisplayTime: 6000,
                   DelayTime: 7000,
-                  Background: '#000',
+                  Background: 'rgb(13, 13, 13)',
                   BorderRadius: 5,
                   BorderWidth: 1,
                   BorderColor: 'red',
@@ -1262,8 +1274,6 @@
 
     <!-- ============JAVASCRIPT-LINKS============= -->
     <script src="assets/javascript/function.js"></script>
-    <!-- <script src="assets/javascript/earning_alert.js"></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
 
 

@@ -6,11 +6,13 @@
     --color-two-blue: #1DCFFC;
     --color-three-darkblue: #1F232F;
     --color-three-darkblue2: #2b3141;
-    --color-four-gray: #9AA0A7; /* text color*/
+    --color-four-gray: #9AA0A7; 
     --color-four-gray2: #9aa0a752;
     --color-five-white: #ffffff;
+    --color-six-black: rgb(13, 13, 13);
     --border-radius:26px 26px 26px 26px;
     --box-shadow: 7px 7px 15px 0px #0E1015;
+    
 }
 
 /* ============THE FONTS FOR THE WEBSITE============= */
@@ -76,9 +78,6 @@ html{
 /* ============STYLING FOR THE BODY TAG============= */
 body{
     overscroll-behavior: none;
-    /* min-height: 100vh; */
-    /* position: relative; */
-    
     background-image: radial-gradient(at top right, var(--color-three-darkblue) 25%, #222633 100%);
 }
 
@@ -1562,7 +1561,7 @@ body{
 
 /* ============FOOTER SECTION============= */
 .footer{
-	background-color: black;
+	background: var(--color-six-black);
     padding: 70px 10px;
     font-family: PRO-FONT1;
 
@@ -1696,6 +1695,7 @@ body{
     padding: 2px 6px;
     font-size: 10px;
     display: none;
+    opacity: 0;
     }
 
     /* Mobile Styles */

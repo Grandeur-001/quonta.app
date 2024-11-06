@@ -116,5 +116,3 @@ signUpform.addEventListener(`submit`, (form_event) => {
 
 
 
-
-
