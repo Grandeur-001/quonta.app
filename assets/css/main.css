@@ -1443,7 +1443,6 @@ body{
     transition: all 0.5s ease;
     width: 200px;
     margin-top: 30px;
-    /* background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%); */
 
 
 
@@ -1595,7 +1594,7 @@ body{
 	position: absolute;
 	left:0;
 	bottom: -10px;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: radial-gradient(at top left , var(--color-two-blue) 30%, var(--color-one-purple) 100%);
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
