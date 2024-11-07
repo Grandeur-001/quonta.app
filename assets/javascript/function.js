@@ -6,6 +6,7 @@ const checkNav = document.querySelector(`#check_nav`);
 const allLinks = document.querySelector('.links');
 const preloaderAnimation = document.querySelector(`.preloader_animation`);
 const mobileNavigation = document.querySelector(`.navigation_wrapper`);
+let thisHref = allLinks.getAttribute(`href`);
 
 
 
@@ -70,14 +71,14 @@ if(firstEntry && performance.navigation.type === 0){
 	preloaderAnimation.classList.add(`show_preloader`);
 	setTimeout(() => {
 		preloaderAnimation.classList.remove(`show_preloader`);
-		window.location.href = thisHref;}, 6000);
+		window.location.href = location.href;}, 6000);
 
 }
 if(performance.navigation.type === 1) {
 	preloaderAnimation.classList.add(`show_preloader`);
 	setTimeout(() => {
 		preloaderAnimation.classList.remove(`show_preloader`);
-		window.location.href = thisHref;}, 6000);
+		window.location.href = location.href;}, 6000);
 
 }
 else{
@@ -150,14 +151,14 @@ window.addEventListener(`scroll`, startAnimation);
 
 
 
-// document.addEventListener('contextmenu', (event) => event.preventDefault());
-// document.onkeydown = function(e) {
-//     // Disable F12, Ctrl+Shift+I (Inspector), Ctrl+Shift+J (Console), Ctrl+U (View Source)
-//     if (e.keyCode == 123 || // F12
-//         (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-//         (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
-//         (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl+U
-//         return false; // Prevent the event
-//     }
-// };
+document.addEventListener('contextmenu', (event) => event.preventDefault());
+document.onkeydown = function(e) {
+    // Disable F12, Ctrl+Shift+I (Inspector), Ctrl+Shift+J (Console), Ctrl+U (View Source)
+    if (e.keyCode == 123 || // F12
+        (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
+        (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl+U
+        return false; // Prevent the event
+    }
+};
 
