@@ -12,7 +12,7 @@ let thisHref = allLinks.getAttribute(`href`);
 
 
 checkNav.addEventListener(`click`, () => {
-	
+
 	if(checkNav.checked){
 		hamBurger.classList.add('is-active');
 		mobileNavbar.style.setProperty(
@@ -23,9 +23,6 @@ checkNav.addEventListener(`click`, () => {
 			'transition',
 			'0.6s cubic-bezier(0.23, 1, 0.32, 1)'
 		);
-	
-
-		
 	}else {
 		hamBurger.classList.remove('is-active');
 		mobileNavbar.style.setProperty(
@@ -37,10 +34,50 @@ checkNav.addEventListener(`click`, () => {
 			'transition',
 			'1s'
 		);
-
-
 	};
 
+	mobileNavbar.style.setProperty(
+		'width',
+		'70px'
+	 );
+	 document.querySelectorAll(`.menu_link`).forEach((menuLink) =>{
+		menuLink.style.setProperty(
+				'transform',
+				'translateX(20px)'
+			 );
+	 });
+	
+
+});
+
+document.querySelectorAll(`.menu_icon`).forEach((icon) => {
+	icon.addEventListener(`click`, () => {
+		if (mobileNavbar.style.width === `70px`) {
+			 mobileNavbar.style.setProperty(
+				'width',
+				'160px'
+			 );
+			 document.querySelectorAll(`.menu_link`).forEach((menuLink) =>{
+				menuLink.style.setProperty(
+						'transform',
+						'translateX(0)'
+					 );
+			 });
+		}else {
+			mobileNavbar.style.setProperty(
+				'width',
+				'70px'
+			 );
+			 document.querySelectorAll(`.menu_link`).forEach((menuLink) =>{
+				menuLink.style.setProperty(
+						'transform',
+						'translateX(20px)'
+					 );
+			 });
+		}
+
+
+	});
 });
 
 
@@ -62,6 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	jsMediaQueries();
 	window.addEventListener('resize', jsMediaQueries);
 });
+
+
 
 
 const firstEntry = localStorage.getItem(`hasVisited`) === null;
