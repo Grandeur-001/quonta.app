@@ -46,9 +46,9 @@ checkNav.addEventListener(`click`, () => {
 				'translateX(20px)'
 			 );
 	 });
-	
-
 });
+
+
 
 document.querySelectorAll(`.menu_icon`).forEach((icon) => {
 	icon.addEventListener(`click`, () => {
@@ -162,7 +162,7 @@ document.querySelectorAll(`.links`).forEach((link_s) => {
 
 
 // ELEMENTS SLIDE-IN ANIMATION //
-const items = document.querySelectorAll(`#move_in`);
+const items = document.querySelectorAll(`.move_in`);
 window.addEventListener(`scroll`, startAnimation);
 
     function startAnimation() {
@@ -176,7 +176,7 @@ window.addEventListener(`scroll`, startAnimation);
 			else{
 				box.classList.remove(`visible`)
 			}
-    })};
+})};
 
 
 

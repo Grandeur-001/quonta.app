@@ -915,6 +915,7 @@ body{
 }
 .section_3 .wrapper .card_wrapper .card > .wrapper .image .image_wrapper img{
     max-width: 100%;
+    opacity: 0.8;
 }
 
 .section_3 .wrapper .card_wrapper .card > .wrapper .text{

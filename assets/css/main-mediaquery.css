@@ -35,7 +35,7 @@
 
     }
     .desktop_navbar .wrapper > nav .logo .logo_name{
-        /* display: none; */
+        display: none;
         font-size: 18px;
 
     }
