@@ -151,7 +151,7 @@ document.querySelectorAll(`.links`).forEach((link_s) => {
 			preloaderAnimation.classList.remove(`show_preloader`);
 
 		});
-		
+		 
 		// setTimeout(() => {
 		// 	preloaderAnimation.classList.remove(`show_preloader`);
 		// 	window.location.href = thisHref;}, 3000);
