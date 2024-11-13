@@ -1271,12 +1271,13 @@
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
-                font-family: sans-serif;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+
             }
     
             .toast {
-                background-color: #333;
-                color: #fff;
+                background-color: var(--color-five-white);
+                color: var(--color-three-darkblue);
                 padding: 10px 20px;
                 border-radius: 5px;
                 box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -1310,7 +1311,7 @@
     
             .toast-content .title {
                 font-weight: bold;
-                color: #00FFCC;
+                color: #1DCFFC;
             }
     
             /* Mobile styles for toast notifications */
@@ -1399,7 +1400,7 @@
                 content.classList.add("toast-content");
                 content.innerHTML = `
                     <span class="title">Earning</span>
-                    <span>${name} from ${country.toUpperCase()} has just earned $${amount}.</span>
+                    <span>${name} from <b>${country}</b> has just earned <b>$${amount}</b>.</span>
                 `;
                 toast.appendChild(content);
     
@@ -1429,7 +1430,7 @@
                     const diffX = currentX - startX;
     
                     if (diffX > 0) {
-                        toast.style.transform = `translateX(${diffX}px)`;
+                        toast.style.transform = `translateX(300vh)`;
                     }
                 });
     
@@ -1441,7 +1442,7 @@
                         toast.classList.add("swipe-out");
                         setTimeout(() => {
                             toastContainer.removeChild(toast);
-                        }, 500);
+                        }, 1000);
                     } else {
                         toast.style.transform = `translateX(0)`;
                     }
