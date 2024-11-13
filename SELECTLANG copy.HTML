@@ -1,179 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notification System</title>
-  <style>
-    /* Basic styles for navbar and notifications */
-    .navbar { background: #333; padding: 1rem; display: flex; justify-content: space-between; color: white; }
-    .notification-icon { position: relative; cursor: pointer; }
-    .notification-badge { position: absolute; top: -5px; right: -10px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; display: none; }
-    .notification-dropdown { 
-      position: absolute; 
-      top: 2.5rem; 
-      right: 1rem; 
-      background: white; 
-      color: black; 
-      border: 1px solid #ccc; 
-      width: 300px; 
-      max-height: 300px; 
-      overflow-y: auto; 
-      display: none; 
-      transform: scale(0); /* Start with a small scale */
-      transform-origin: top; /* Make it scale from the top */
-      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Smooth scale-in transition */
-    }
-    .notification-dropdown.show {
-      display: block;
-      transform: scale(1); /* Scale to normal size */
-    }
-    .notification-item { padding: 10px; border-bottom: 1px solid #ddd; position: relative; transition: transform 0.3s ease; display: flex; align-items: center; justify-content: space-between; }
-    .notification-item.swiped { transform: translateX(-100%); opacity: 0; }
-    .close-icon { font-weight: bold; color: red; cursor: pointer; margin-left: 10px; }
-    .clear-all-btn { padding: 10px; text-align: center; background: #f44336; color: white; cursor: pointer; border: none; width: 100%; font-size: 14px; }
-    .clear-all-btn:hover { background: #d32f2f; }
-    .no-notification { padding: 10px; text-align: center; color: #888; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Earning Notifications</title>
+    <style>
+        /* Toast CSS Styles */
+        #toast-container {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 1;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateX(100%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .toast.hide {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        .toast-icon {
+            width: 36px;
+            height: 36px;
+        }
+
+        .toast-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .toast-content .title {
+            font-weight: bold;
+            color: #00FFCC;
+        }
+
+        /* Mobile styles for toast notifications */
+        @media (max-width: 888px) {
+            #toast-container {
+                top: 10px;
+                bottom: auto;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                gap: 10px;
+                width: 100%;
+            }
+
+            .toast {
+                transform: translateY(-100%);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .toast.show {
+                transform: translateY(0);
+            }
+
+            .toast.hide {
+                transform: translateY(-100%);
+            }
+        }
+    </style>
 </head>
 <body>
 
-<script>
-  // notification.js
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Insert the navbar with notification icon and dropdown into the DOM
-  const navbar = `
-    <div class="navbar">
-      <h1>My App</h1>
-      <div class="notification-icon" onclick="toggleDropdown()">
-        🔔 <span class="notification-badge" id="notification-badge">0</span>
-        <div class="notification-dropdown" id="notification-dropdown"></div>
-      </div>
-    </div>
-  `;
-  document.body.insertAdjacentHTML('afterbegin', navbar);
-});
+    <script>
+        // Expanded data arrays with 70 names and 80 countries
+        const names = ["Ahmed", "João", "Kofi", "Thabo", "Youssef", "Elena", "Hiro", "Chloe", "Anika", "Carlos",
+                       "Luis", "Mateo", "Jin", "Sara", "Amir", "Mohammed", "Leila", "Pierre", "Aisha", "Fatima",
+                       "Olga", "Ibrahim", "Sonia", "Dmitri", "Mei", "Ali", "Hasan", "Evelyn", "Nia", "Samir",
+                       "Linda", "Juan", "Mariam", "Lars", "Nina", "George", "Mikhail", "Isaac", "Julia", "Lina",
+                       "Abdul", "Tariq", "Selma", "Zara", "Leon", "Noah", "Emma", "Sofia", "Ella", "Jasmine",
+                       "Daniel", "Sophia", "Liam", "Lucas", "Oliver", "James", "Henry", "Nathan", "David", "Tom",
+                       "Gustav", "Aliyah", "Layla", "Amara", "Ivan", "Anna", "Raheem", "Oscar", "Santiago", "Felipe"];
+        
+        const countries = ["Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon",
+                           "Central African Republic", "Chad", "Comoros", "Congo", "Côte d'Ivoire", "Djibouti", "Egypt",
+                           "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea",
+                           "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali",
+                           "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda",
+                           "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa",
+                           "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe",
+                           "Argentina", "Brazil", "Canada", "China", "France", "Germany", "India", "Indonesia", "Italy",
+                           "Japan", "Mexico", "Philippines", "Russia", "Saudi Arabia", "South Korea", "Spain", "Thailand",
+                           "Turkey", "United Kingdom", "United States", "Vietnam"];
 
-  // Notifications data for generating random notifications
-  const names = ["Ahmed", "João", "Kofi", "Thabo", "Youssef"];
-  const countries = ["Algeria", "Angola", "Benin", "Botswana", "Burkina Faso"];
-  const minAmount = 100, maxAmount = 9000;
+        const minAmount = 100;
+        const maxAmount = 9000;
 
-  // Initialize notifications from localStorage or set an empty array
-  let notifications = JSON.parse(localStorage.getItem("notifications")) || [];
+        // Function to generate a random integer between min and max
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
 
-  // Function to toggle notification dropdown visibility with scale-in effect
-  function toggleDropdown() {
-    const dropdown = document.getElementById("notification-dropdown");
-    dropdown.classList.toggle("show"); // Add/remove the "show" class to trigger scale transition
-  }
+        // Function to get a random name, country, and amount
+        function getRandomData() {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const country = countries[Math.floor(Math.random() * countries.length)];
+            const amount = getRandomInt(minAmount, maxAmount);
+            return { name, country, amount };
+        }
 
-  // Function to add a new notification
-  function addNotification() {
-    const name = names[Math.floor(Math.random() * names.length)];
-    const country = countries[Math.floor(Math.random() * countries.length)];
-    const amount = Math.floor(Math.random() * (maxAmount - minAmount + 1)) + minAmount;
-    const notification = `${name} from ${country} earned $${amount}`;
-    notifications.unshift(notification); // Add to the top of the list
-    localStorage.setItem("notifications", JSON.stringify(notifications)); // Persist in localStorage
-    updateBadge();
-    displayNotifications();
-    playNotificationSound(); // Play sound when a new notification is added
-  }
+        // Function to show a toast notification
+        function showToast() {
+            const { name, country, amount } = getRandomData();
 
-  // Function to play notification sound
-  // function playNotificationSound() {
-  //   const sound = new Audio('alert.wav');  // Adjust the file path if needed
-  //   sound.play();
-  // }
+            const toastContainer = document.getElementById("toast-container");
 
-  // Update notification badge count
-  function updateBadge() {
-    const badge = document.getElementById("notification-badge");
-    badge.textContent = notifications.length;
-    badge.style.display = notifications.length > 0 ? "inline" : "none";
-  }
+            // Create a new toast element
+            const toast = document.createElement("div");
+            toast.classList.add("toast");
 
-  // Display all notifications in the dropdown
-  function displayNotifications() {
-    const dropdown = document.getElementById("notification-dropdown");
-    dropdown.innerHTML = ""; // Clear previous content
+            // Add Bitcoin icon to toast
+            const icon = document.createElement("img");
+            icon.src = "/assets/svg/bitcoin-btc-logo.svg"; // Replace with a real Bitcoin icon URL
+            icon.alt = "Bitcoin Icon";
+            icon.classList.add("toast-icon");
+            toast.appendChild(icon);
 
-    if (notifications.length === 0) {
-      // Show "No notifications" if there are no notifications
-      const noNotificationMessage = document.createElement("div");
-      noNotificationMessage.className = "no-notification";
-      noNotificationMessage.textContent = "No notifications";
-      dropdown.appendChild(noNotificationMessage);
-    } else {
-      notifications.forEach((notif, index) => {
-        const item = document.createElement("div");
-        item.className = "notification-item";
-        item.textContent = notif;
+            // Add text content to toast
+            const content = document.createElement("div");
+            content.classList.add("toast-content");
+            content.innerHTML = `
+                <span class="title">Earning</span>
+                <span>${name} from ${country.toUpperCase()} has just earned $${amount}.</span>
+            `;
+            toast.appendChild(content);
 
-        // Close icon for manual removal
-        const closeIcon = document.createElement("span");
-        closeIcon.className = "close-icon";
-        closeIcon.textContent = "✖";
-        closeIcon.onclick = (e) => {
-          e.stopPropagation(); // Prevent dropdown from closing on icon click
-          removeNotification(index);
-        };
+            // Append the toast to the container
+            toastContainer.appendChild(toast);
 
-        item.appendChild(closeIcon); // Append close icon to notification item
+            // Show the toast with a sliding animation
+            setTimeout(() => toast.classList.add("show"), 100);
 
-        // Swipe-to-remove functionality
-        let startX;
-        item.addEventListener("touchstart", (e) => {
-          startX = e.touches[0].clientX; // Record start X position
-        });
-        item.addEventListener("touchend", (e) => {
-          const endX = e.changedTouches[0].clientX; // Record end X position
-          if (startX - endX > 50) { // Detect left swipe (adjust threshold as needed)
-            item.classList.add("swiped");
-            setTimeout(() => removeNotification(index), 300);
-          }
-        });
+            // Hide and remove the toast after 5 seconds
+            setTimeout(() => {
+                toast.classList.remove("show");
+                toast.classList.add("hide");
+                setTimeout(() => toastContainer.removeChild(toast), 500);
+            }, 5000); // Toast visibility duration (5 seconds)
 
-        dropdown.appendChild(item);
-      });
-    }
 
-    // Add "Clear All" button if there are notifications
-    if (notifications.length > 0) {
-      const clearAllBtn = document.createElement("button");
-      clearAllBtn.className = "clear-all-btn";
-      clearAllBtn.textContent = "Clear All";
-      clearAllBtn.onclick = clearAllNotifications;
-      dropdown.appendChild(clearAllBtn);
-    }
-  }
 
-  // Remove a notification by index and update localStorage
-  function removeNotification(index) {
-    notifications.splice(index, 1); // Remove from array
-    localStorage.setItem("notifications", JSON.stringify(notifications)); // Update localStorage
-    updateBadge();
-    displayNotifications();
-  }
+            
+            let startX;
+            toast.addEventListener("touchstart", (e) => {
+                startX = e.touches[0].clientX;
+            });
 
-  // Clear all notifications from both UI and localStorage
-  function clearAllNotifications() {
-    notifications = []; // Clear the array
-    localStorage.setItem("notifications", JSON.stringify(notifications)); // Clear from localStorage
-    updateBadge();
-    displayNotifications();
-  }
+            toast.addEventListener("touchmove", (e) => {
+                const currentX = e.touches[0].clientX;
+                const diffX = currentX - startX;
 
-  // Initialize notification count and display saved notifications on load
-  document.addEventListener("DOMContentLoaded", () => {
-    updateBadge();
-    displayNotifications();
-    // Generate a new notification every 7 seconds
-    setInterval(addNotification, 90000); // Adjust interval as needed
-  });
-</script>
+                if (diffX > 0) {
+                    toast.style.transform = `translateX(${diffX}px)`;
+                }
+            });
 
+            toast.addEventListener("touchend", (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diffX = endX - startX;
+
+                if (diffX > 100) {
+                    toast.classList.add("swipe-out");
+                    setTimeout(() => {
+                        toastContainer.removeChild(toast);
+                    }, 500);
+                } else {
+                    toast.style.transform = `translateX(0)`;
+                }
+            });
+        }
+
+        // Show a toast notification every 10 seconds
+        setInterval(showToast, 10000);
+    </script>
 </body>
 </html>

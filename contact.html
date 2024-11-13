@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <!-- ============TITLE============= -->
-        <title>Quonta Trade</title>
+        <title>Ocean Fortune</title>
     
         <!-- ============HEAD-ICON-LOGO============= -->
         <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -112,25 +112,38 @@
 
 
 
+
     <!-- ============ DESKTOP-NAVIGATION-BAR============= -->
     <header id="desktop_navbar" class="desktop_navbar">
         <div class="wrapper">
+
             <nav>
-                <div style="z-index: 3; opacity: 0; cursor: pointer; position: absolute; height: 50px; width: 50px; background-color: red;">
+                
+                <div class="check_nav_wrapper">
                     <input type="checkbox" name="" id="check_nav" style="cursor: pointer;">
                 </div>
-                    <div class="hamburger" id="hamburger-6">
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                    </div>
+                <div class="hamburger" id="hamburger-6">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+
+                <div class="notification_icon"  onclick="toggleDropdown()" style="position: absolute; right: 95px;">
+                    <i class="fa fa-bell" style="color: white; font-size: 21px;"> </i>
+                    <!-- <span class="notification-badge" id="notification-badge">0</span> -->
+                    <!-- <div class="notification-dropdown" id="notification-dropdown"></div> -->
+                </div>
+                
+
 
                 <div class="logo">
-                    <div class="logo_wrapper" onclick="location.href=`index.html`">
+                    <a href="/index.html" class="links"  style="display: flex; align-items: center; gap: 20px; text-decoration: none;">
+                    <div class="logo_wrapper">
                         <img src="/assets/images/logo.png" alt="">
                     </div>
 
-                    <div class="logo_name">Quonta Trade</div>
+                    <div class="logo_name">Ocean Fortune</div>
+                    </a>
                 </div>
 
                 <ul>
@@ -150,7 +163,6 @@
         
     </header>
     <!-- ============ DESKTOP-NAVIGATION-BAR END HERE============= -->
-
 
 
     <!-- ============ CRYPTO STICKER ============= //--AT THE TOP, BELOW THE NAV BAR--//-->
@@ -301,6 +313,7 @@
 
     <!-- ============JAVASCRIPT-LINKS============= -->
     <script src="assets/javascript/function.js"></script>
+    <script src="assets/javascript/notification.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
    
 

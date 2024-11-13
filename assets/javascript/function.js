@@ -162,21 +162,24 @@ document.querySelectorAll(`.links`).forEach((link_s) => {
 
 
 // ELEMENTS SLIDE-IN ANIMATION //
-const items = document.querySelectorAll(`.move_in`);
-window.addEventListener(`scroll`, startAnimation);
 
-    function startAnimation() {
-		const trigger = (window.innerHeight / 4.6 * 4);
-		items.forEach(box => {
+
+window.addEventListener(`scroll`, () => {
+	const moveInBox = document.querySelectorAll(`.move_in`);
+	const windowHeight = window.innerHeight / 5 * 4;
+
+	moveInBox.forEach((box) => {
 		const boxTop = box.getBoundingClientRect().top;
 
-			if(boxTop < trigger - 100){
-				box.classList.add(`visible`);
-			}
-			else{
-				box.classList.remove(`visible`)
-			}
-})};
+		if (boxTop < windowHeight) {
+			box.classList.add(`visible`);
+		}
+		else{
+			box.classList.remove(`visible`)
+		}
+	});
+
+});
 
 
 

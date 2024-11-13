@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //   Function to play notification sound
   function playNotificationSound() {
     const sound = new Audio('alert.wav');  // Adjust the file path if needed
-    sound.play();
+    // sound.play();
   }
   
   // Update notification badge count
@@ -134,6 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateBadge();
     displayNotifications();
     // Generate a new notification every 7 seconds
-    setInterval(addNotification, 19000); // Adjust interval as needed
+    setInterval(addNotification, 300000); // Adjust interval as needed
   });
   
