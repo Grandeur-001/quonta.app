@@ -145,10 +145,16 @@ document.querySelectorAll(`.links`).forEach((link_s) => {
 
 		const thisHref = link_s.getAttribute(`href`);
 		preloaderAnimation.classList.add(`show_preloader`);
-		
-		setTimeout(() => {
+
+		const win = window.open(thisHref, `_self`);
+		win.addEventListener(`load`, () => {
 			preloaderAnimation.classList.remove(`show_preloader`);
-			window.location.href = thisHref;}, 3000);
+
+		});
+		
+		// setTimeout(() => {
+		// 	preloaderAnimation.classList.remove(`show_preloader`);
+		// 	window.location.href = thisHref;}, 3000);
 
 	});
 
@@ -162,8 +168,6 @@ document.querySelectorAll(`.links`).forEach((link_s) => {
 
 
 // ELEMENTS SLIDE-IN ANIMATION //
-
-
 window.addEventListener(`scroll`, () => {
 	const moveInBox = document.querySelectorAll(`.move_in`);
 	const windowHeight = window.innerHeight / 5 * 4;
