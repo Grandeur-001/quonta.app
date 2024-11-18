@@ -2,7 +2,7 @@
     --text-color: #ffffff;
     --secondary-text: #8b8ca7;
     --border-color: #2a2f3e;
-    --hover-color: #292d3d9d;
+    --hover-color: rgba(255, 255, 255, 0.05);
     --positive-color: #00c853;
     --negative-color: #ff3d3d;
 }
