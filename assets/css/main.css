@@ -10,7 +10,6 @@
     --color-four-gray2: #9aa0a752;
     --color-five-white: #ffffff;
     --color-six-black: #1b1e28;
-    /* --color-six-black: rgb(13, 13, 13); */
     --border-radius:26px 26px 26px 26px;
     --box-shadow: 7px 7px 15px 0px #0E1015;
     
@@ -79,7 +78,7 @@ html{
 /* ============STYLING FOR THE BODY TAG============= */
 body{
     overscroll-behavior: none;
-    background-image: radial-gradient(at top right, var(--color-three-darkblue) 25%, #222633 100%);
+    background: radial-gradient(at top right, var(--color-three-darkblue) 25%, #222633 100%);
 }
 
 /* ============STYLING AND ANIMATION FOR THE SCROLL WATCHER============= */
@@ -402,66 +401,6 @@ body{
     background-clip: text;
 }
 
-.notification-dropdown { 
-    position: fixed; 
-    top: 5.8rem; 
-    left: 0;
-    background: var(--color-three-darkblue); 
-    color: var(--color-five-white); 
-    width: 100%; 
-    max-height: 300px; 
-    overflow-y: auto; 
-    display: none; 
-    /* height: 0; */
-    z-index: 9999999999;
-    transition: all 0.5s ease;
-    /* transform: translateY(-90vh); */
-  }
-  .notification-dropdown.show {
-    display: block;
-    /* height: auto; */
-    /* transform: translateY(0); */
-
-  }
-  .notification-item { 
-    padding: 20px; 
-    border-bottom: 1px solid #ddd; 
-    position: relative; 
-    transition: transform 0.3s ease; 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    font-size: 14px;
-}
-  .notification-item.swiped { transform: translateX(-100%); opacity: 0; }
-  .close-icon {
-    font-weight: bold; 
-    color: var(--color-five-white); 
-    cursor: pointer; 
-    margin-left: 10px; 
-}
-  .clear-all-btn { 
-    padding: 10px; 
-    text-align: center; 
-    background: ; 
-    color: white; 
-    cursor: pointer; 
-    border: none; 
-    width: 100%; 
-    font-size: 14px; 
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
-
-}
-  .clear-all-btn:hover {
-    background: var(--color-five-white);
-    color: var(--color-six-black); 
-}
-  .no-notification { 
-    padding: 10px; 
-    text-align: center; 
-    color: var(--color-four-gray); 
-    background: var(--color-six-black);
-}
 
 .desktop_navbar .wrapper > nav .notification_icon .notification-badge{
     position: absolute; 

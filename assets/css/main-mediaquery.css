@@ -4,7 +4,7 @@
     }
     
     .google-translator{
-        display: none;
+        /* display: none; */
     }
     .desktop_navbar{
         background-image: radial-gradient(at top right, var(--color-three-darkblue) 25%, #222633 100%);

@@ -7,6 +7,7 @@ const allLinks = document.querySelector('.links');
 const preloaderAnimation = document.querySelector(`.preloader_animation`);
 const mobileNavigation = document.querySelector(`.navigation_wrapper`);
 let thisHref = allLinks.getAttribute(`href`);
+const alertBox = document.querySelector(`#toast-container`);
 
 
 
@@ -107,19 +108,33 @@ const firstEntry = localStorage.getItem(`hasVisited`) === null;
 if(firstEntry && performance.navigation.type === 0){
 	localStorage.setItem(`hasVisited`, `true`);
 
+	alertBox.style.setProperty(
+		'visibility',
+		'hidden'
+	)
 	preloaderAnimation.classList.add(`show_preloader`);
 	setTimeout(() => {
+		alertBox.style.setProperty(
+			'visibility',
+			'visible'
+		);
 		preloaderAnimation.classList.remove(`show_preloader`);
-		window.location.href = location.href;}, 6000);
+		window.location.href = location.href;}, 6000); 
+
 
 }
 if(performance.navigation.type === 1) {
+	alertBox.style.setProperty(
+		'visibility',
+		'hidden'
+	);
+	
 	preloaderAnimation.classList.add(`show_preloader`);
 	setTimeout(() => {
 		preloaderAnimation.classList.remove(`show_preloader`);
 		window.location.href = location.href;}, 6000);
-
-}
+ 
+} 
 else{
 	preloaderAnimation.classList.remove(`show_preloader`);
 }
@@ -145,17 +160,12 @@ document.querySelectorAll(`.links`).forEach((link_s) => {
 
 		const thisHref = link_s.getAttribute(`href`);
 		preloaderAnimation.classList.add(`show_preloader`);
-
 		const win = window.open(thisHref, `_self`);
 		win.addEventListener(`load`, () => {
 			preloaderAnimation.classList.remove(`show_preloader`);
 
 		});
 		 
-		// setTimeout(() => {
-		// 	preloaderAnimation.classList.remove(`show_preloader`);
-		// 	window.location.href = thisHref;}, 3000);
-
 	});
 
 });

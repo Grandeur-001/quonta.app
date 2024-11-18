@@ -1,0 +1,21 @@
+@media only screen and (max-width: 1135px) {
+    .main_content{
+        /* width: 70%; */
+    }
+    
+    .main_content > .wrapper .wallet > .wrapper .grid_card > .wrapper{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+@media only screen and (max-width: 670px) {
+    .sidebar{
+        display: none;
+    }
+    .main_content{
+        /* width: 100%; */
+    }
+    .main_content > .wrapper .wallet > .wrapper .grid_card > .wrapper{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

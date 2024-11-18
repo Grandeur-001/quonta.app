@@ -38,9 +38,7 @@
     <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
 </head>
 
-<style>
 
-</style>
 
 <body>
     <!-- ============SCROLL WATCHER============= -->
@@ -48,7 +46,7 @@
 
 
     <!-- ============GOOGLE-LANGUAGE-TRANSLATOR============= -->
-    <section class="google-translator" style="display: none;">
+    <section class="google-translator">
         <div>
             <!-- GTranslate: https://gtranslate.io/ -->
                 <style type="text/css">
@@ -149,7 +147,7 @@
                 <div class="logo">
                     <a href="/index.html" class="links"  style="display: flex; align-items: center; gap: 20px; text-decoration: none;">
                     <div class="logo_wrapper">
-                        <img src="/assets/images/logo.png" alt="">
+                        <img src="assets/images/logo.png" alt="">
                     </div>
 
                     <div class="logo_name">Ocean Fortune</div>
@@ -161,8 +159,8 @@
                     <li><a class="links" href="/about.html">about us</a></li>            
                     <li><a>support</a>
                         <ul class="sub_menu">
-                                <li><a class="links" href="faq.html">faq</a></li>
-                                <li><a class="links" href="contact.html">contact us</a></li>
+                            <li><a class="links" href="faq.html">faq</a></li>
+                            <li><a class="links" href="contact.html">contact us</a></li>
                         </ul>
                     </li>
                     <li><a class="links" href="login.html">Login</a></li>
@@ -1175,9 +1173,9 @@
     <!-- ============ FOOTER SECTION ============= -->
     <footer class="footer">
         <div class="logo">
-            <a href="/index.html" class="links" style="display: flex; align-items: center; gap: 20px; text-decoration: none;">
+            <a href="index.html" class="links" style="display: flex; align-items: center; gap: 20px; text-decoration: none;">
                 <div class="logo_wrapper">
-                    <img src="/assets/images/logo.png" alt="">
+                    <img src="assets/images/logo.png" alt="">
                 </div>
 
                 <div class="logo_name">Ocean Fortune</div>
@@ -1272,12 +1270,13 @@
                 flex-direction: column;
                 gap: 10px;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
+                cursor: pointer;
 
             }
     
             .toast {
-                background-color: var(--color-five-white);
-                color: var(--color-three-darkblue);
+                background-color: var(--color-six-black);
+                color: var(--color-four-gray);
                 padding: 10px 20px;
                 border-radius: 5px;
                 box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -1311,7 +1310,7 @@
     
             .toast-content .title {
                 font-weight: bold;
-                color: #1DCFFC;
+                color: var(--color-two-blue);
             }
     
             /* Mobile styles for toast notifications */
@@ -1324,11 +1323,14 @@
                     transform: translateX(-50%);
                     gap: 10px;
                     width: 100%;
-                }
+                    /* display: none; */
+                } 
     
                 .toast {
                     transform: translateY(-100%);
                     transition: opacity 0.5s ease, transform 0.5s ease;
+                    border-radius: 0px;
+
                 }
     
                 .toast.show {
@@ -1340,7 +1342,7 @@
                 }
             }
         </style>
-        <div id="toast-container"></div>
+        <div id="toast-container" class="alert-box"></div>
         <script>
             // Expanded data arrays with 70 names and 80 countries
             const names = ["Ahmed", "João", "Kofi", "Thabo", "Youssef", "Elena", "Hiro", "Chloe", "Anika", "Carlos",
@@ -1390,7 +1392,7 @@
     
                 // Add Bitcoin icon to toast
                 const icon = document.createElement("img");
-                icon.src = "/assets/svg/bitcoin-btc-logo.svg"; // Replace with a real Bitcoin icon URL
+                icon.src = "assets/svg/bitcoin-btc-logo.svg"; // Replace with a real Bitcoin icon URL
                 icon.alt = "Bitcoin Icon";
                 icon.classList.add("toast-icon");
                 toast.appendChild(icon);
@@ -1399,7 +1401,7 @@
                 const content = document.createElement("div");
                 content.classList.add("toast-content");
                 content.innerHTML = `
-                    <span class="title">Earning</span>
+                    <span class="title">Earnings</span>
                     <span>${name} from <b>${country}</b> has just earned <b>$${amount}</b>.</span>
                 `;
                 toast.appendChild(content);
@@ -1449,10 +1451,11 @@
                 });
             }
     
-            // Show a toast notification every 10 seconds
-            setInterval(showToast, 20000);
+            // Show a toast notification every set seconds
+            setInterval(showToast, 10000);
         </script>
     </section>
+
 
 
 

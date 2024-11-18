@@ -3,200 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Earning Notifications</title>
-    <style>
-        /* Toast CSS Styles */
-        #toast-container {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .toast {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            opacity: 1;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            transform: translateX(100%);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .toast.show {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .toast.hide {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-
-        .toast-icon {
-            width: 36px;
-            height: 36px;
-        }
-
-        .toast-content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .toast-content .title {
-            font-weight: bold;
-            color: #00FFCC;
-        }
-
-        /* Mobile styles for toast notifications */
-        @media (max-width: 888px) {
-            #toast-container {
-                top: 10px;
-                bottom: auto;
-                right: auto;
-                left: 50%;
-                transform: translateX(-50%);
-                gap: 10px;
-                width: 100%;
-            }
-
-            .toast {
-                transform: translateY(-100%);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-
-            .toast.show {
-                transform: translateY(0);
-            }
-
-            .toast.hide {
-                transform: translateY(-100%);
-            }
-        }
-    </style>
+    <title>Document</title>
 </head>
+<style>
+    :root {
+  --background-color: #1a1f2e;
+  --text-color: #ffffff;
+  --secondary-text: #8b8ca7;
+  --border-color: #2a2f3e;
+  --hover-color: #242837;
+  --positive-color: #00c853;
+  --negative-color: #ff3d3d;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.table-responsive {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+tr {
+  transition: background-color 0.2s ease;
+}
+
+tr:hover {
+  background-color: var(--hover-color);
+}
+
+td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.asset-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.asset-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+</style>
 <body>
-
-    <!-- Toast Container -->
-    <div id="toast-container"></div>
-
-    <script>
-        // Expanded data arrays with 70 names and 80 countries
-        const names = ["Ahmed", "João", "Kofi", "Thabo", "Youssef", "Elena", "Hiro", "Chloe", "Anika", "Carlos",
-                       "Luis", "Mateo", "Jin", "Sara", "Amir", "Mohammed", "Leila", "Pierre", "Aisha", "Fatima",
-                       "Olga", "Ibrahim", "Sonia", "Dmitri", "Mei", "Ali", "Hasan", "Evelyn", "Nia", "Samir",
-                       "Linda", "Juan", "Mariam", "Lars", "Nina", "George", "Mikhail", "Isaac", "Julia", "Lina",
-                       "Abdul", "Tariq", "Selma", "Zara", "Leon", "Noah", "Emma", "Sofia", "Ella", "Jasmine",
-                       "Daniel", "Sophia", "Liam", "Lucas", "Oliver", "James", "Henry", "Nathan", "David", "Tom",
-                       "Gustav", "Aliyah", "Layla", "Amara", "Ivan", "Anna", "Raheem", "Oscar", "Santiago", "Felipe"];
-        
-        const countries = ["Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon",
-                           "Central African Republic", "Chad", "Comoros", "Congo", "Côte d'Ivoire", "Djibouti", "Egypt",
-                           "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea",
-                           "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali",
-                           "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda",
-                           "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa",
-                           "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe",
-                           "Argentina", "Brazil", "Canada", "China", "France", "Germany", "India", "Indonesia", "Italy",
-                           "Japan", "Mexico", "Philippines", "Russia", "Saudi Arabia", "South Korea", "Spain", "Thailand",
-                           "Turkey", "United Kingdom", "United States", "Vietnam"];
-
-        const minAmount = 100;
-        const maxAmount = 9000;
-
-        // Function to generate a random integer between min and max
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        // Function to get a random name, country, and amount
-        function getRandomData() {
-            const name = names[Math.floor(Math.random() * names.length)];
-            const country = countries[Math.floor(Math.random() * countries.length)];
-            const amount = getRandomInt(minAmount, maxAmount);
-            return { name, country, amount };
-        }
-
-        // Function to show a toast notification
-        function showToast() {
-            const { name, country, amount } = getRandomData();
-
-            const toastContainer = document.getElementById("toast-container");
-
-            // Create a new toast element
-            const toast = document.createElement("div");
-            toast.classList.add("toast");
-
-            // Add Bitcoin icon to toast
-            const icon = document.createElement("img");
-            icon.src = "/assets/svg/bitcoin-btc-logo.svg"; // Replace with a real Bitcoin icon URL
-            icon.alt = "Bitcoin Icon";
-            icon.classList.add("toast-icon");
-            toast.appendChild(icon);
-
-            // Add text content to toast
-            const content = document.createElement("div");
-            content.classList.add("toast-content");
-            content.innerHTML = `
-                <span class="title">Earning</span>
-                <span>${name} from ${country.toUpperCase()} has just earned $${amount}.</span>
-            `;
-            toast.appendChild(content);
-
-            // Append the toast to the container
-            toastContainer.appendChild(toast);
-
-            // Show the toast with a sliding animation
-            setTimeout(() => toast.classList.add("show"), 100);
-
-            // Hide and remove the toast after 5 seconds
-            setTimeout(() => {
-                toast.classList.remove("show");
-                toast.classList.add("hide");
-                setTimeout(() => toastContainer.removeChild(toast), 500);
-            }, 5000); // Toast visibility duration (5 seconds)
-
-
-
-            
-            let startX;
-            toast.addEventListener("touchstart", (e) => {
-                startX = e.touches[0].clientX;
-            });
-
-            toast.addEventListener("touchmove", (e) => {
-                const currentX = e.touches[0].clientX;
-                const diffX = currentX - startX;
-
-                if (diffX > 0) {
-                    toast.style.transform = `translateX(${diffX}px)`;
-                }
-            });
-
-            toast.addEventListener("touchend", (e) => {
-                const endX = e.changedTouches[0].clientX;
-                const diffX = endX - startX;
-
-                if (diffX > 100) {
-                    toast.classList.add("swipe-out");
-                    setTimeout(() => {
-                        toastContainer.removeChild(toast);
-                    }, 500);
-                } else {
-                    toast.style.transform = `translateX(0)`;
-                }
-            });
-        }
-
-        // Show a toast notification every 10 seconds
-        setInterval(showToast, 10000);
-    </script>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2" rowspan="1"></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="row">
+                        <div class="col-4">
+                            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" alt="" style="max-width: 40px; max-height: 40px;">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <b style="color: white;">BTC</b>
+                                <small>
+                                    BTC
+                                    <span style="color: green;">+0%</span>
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row" style="text-align: right">
+                            <span style="color: white;">0.022</span>
+                            <span>$2,000.00</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row">
+                        <div class="col-4">
+                            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" alt="" style="max-width: 40px; max-height: 40px;">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <b style="color: white;">USDT</b>
+                                <small>
+                                    TRC20
+                                    <span style="color: green;">+0%</span>
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row" style="text-align: right">
+                            <span style="color: white;">19997.127</span>
+                            <span>$20,000.00</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row">
+                        <div class="col-4">
+                            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png" alt="" style="max-width: 40px; max-height: 40px;">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <b style="color: white;">ETH</b>
+                                <small>
+                                    ERC20
+                                    <span style="color: red;">-1%</span>
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row" style="text-align: right">
+                            <span style="color: white;">0.001</span>
+                            <span>$0.00</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row">
+                        <div class="col-4">
+                            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/74.png" alt="" style="max-width: 40px; max-height: 40px;">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <b style="color: white;">DOGE</b>
+                                <small>
+                                    DOGE
+                                    <span style="color: red;">-1%</span>
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row" style="text-align: right">
+                            <span style="color: white;">0.001</span>
+                            <span>$0.00</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row">
+                        <div class="col-4">
+                            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png" alt="" style="max-width: 40px; max-height: 40px;">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <b style="color: white;">BNB</b>
+                                <small>
+                                    BNB-BSC
+                                    <span style="color: green;">+0%</span>
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row" style="text-align: right">
+                            <span style="color: white;">0</span>
+                            <span>$0.00</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row">
+                        <div class="col-4">
+                            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5994.png" alt="" style="max-width: 40px; max-height: 40px;">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <b style="color: white;">SHIB</b>
+                                <small>
+                                    ERC20
+                                    <span style="color: green;">+0.5%</span>
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row" style="text-align: right">
+                            <span style="color: white;">0.0005</span>
+                            <span>$0.00</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row">
+                        <div class="col-4">
+                            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/2.png" alt="" style="max-width: 40px; max-height: 40px;">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <b style="color: white;">LTC</b>
+                                <small>
+                                    LTC
+                                    <span style="color: red;">-0.5%</span>
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row" style="text-align: right">
+                            <span style="color: white;">0.0005</span>
+                            <span>$0.00</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row">
+                        <div class="col-4">
+                            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/52.png" alt="" style="max-width: 40px; max-height: 40px;">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <b style="color: white;">XRP</b>
+                                <small>
+                                    TAG : 1927225453
+                                    <span style="color: green;">+1%</span>
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row" style="text-align: right">
+                            <span style="color: white;">0.001</span>
+                            <span>$0.00</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row">
+                        <div class="col-4">
+                            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" alt="" style="max-width: 40px; max-height: 40px;">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <b style="color: white;">USDT</b>
+                                <small>
+                                    ERC20
+                                    <span style="color: red;">-0.5%</span>
+                                </small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row" style="text-align: right">
+                            <span style="color: white;">0.0005</span>
+                            <span>$0.00</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
 </body>
 </html>

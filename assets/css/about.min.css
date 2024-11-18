@@ -1,3 +1,24 @@
+.mobile_navbar .wrapper ul li:nth-of-type(1) span{
+    background: transparent;
+    box-shadow: none;
+}
+.mobile_navbar .wrapper ul li:nth-of-type(2) span{
+    background: #242834;
+    box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.406);
+}
+.mobile_navbar .wrapper ul li:nth-of-type(1)  span a{
+    background: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white;
+    background-clip: text;
+    
+  }
+  .mobile_navbar .wrapper ul li:nth-of-type(2)  span a{
+    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 .about header{
     margin-top: 70px;
     display: flex;
