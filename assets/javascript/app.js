@@ -16,7 +16,7 @@ hiddenCheckbox.addEventListener(`click`, () => {
 
 });
 
-signUpform.addEventListener(`submit`, (form_event) => {
+signUpform.addEventListener(`submit`, async (form_event) => {
     const lengthRegex = /^.{12,}$/;
     const uppercaseRegex = /[A-Z]/;
     const lowercaseRegex = /[a-z]/;
@@ -101,14 +101,34 @@ signUpform.addEventListener(`submit`, (form_event) => {
         form_event.preventDefault();
     }
     else {
-        preloaderAnimation.classList.add(`show_preloader`);
-
-        setTimeout(() => {
-            preloaderAnimation.classList.remove(`show_preloader`);
-            window.location.href = "login.html";
-        },6000);
-    }
         form_event.preventDefault();
+        // preloaderAnimation.classList.add(`show_preloader`);
+        try {
+            const response = await fetch('http://localhost:8033/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ emailInput, phoneInput, passwordInput }),
+            });
+    
+            const data = await response.json();
+            console.log(data.message)
+
+        } catch (error) {
+            console.error('Error:', error);
+            console.log("Error submitting the form.")
+
+        } finally{
+            setTimeout(() => {
+                preloaderAnimation.classList.remove(`show_preloader`);
+                // window.location.href = "login.html";
+            },9000);
+        } 
+
+        form_event.preventDefault();
+    }
+        
 });
 
 

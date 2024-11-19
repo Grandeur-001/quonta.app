@@ -42,9 +42,14 @@
             </script>
         <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
     </head>
+    <style>
+      html{
+        animation: none;
+      }
+
+    </style>
 <body>
     
-    <div class="global_wrapper">
       <header class="dashboard_header">
           <div class="wrapper">
             <div class="logo">
@@ -167,13 +172,13 @@
               <div class="sidebar_menu">
                   <ul>
                       <li>
-                          <a href="#">
+                          <a href="/assets/user/dashboard.html">
                               <i class="material-icons">dashboard</i>
                               <span>Home</span>
                           </a>
                       </li>
                       <li>
-                          <a href="#">
+                          <a href="/assets/user/swap.html">
                               <i class="material-icons">swap_calls</i>
                               <span>Swap</span>
                           </a>
@@ -217,20 +222,52 @@
       </aside>
 
       <main class="main_content">
-          
           <div class="wrapper">
               <section class="wallet">
                 <div class="wrapper">
                   <div class="wallet_container">
                       <div>
                           <span>Wallet <i class="material-icons">keyboard_arrow_down</i></span>
-                          <span id="amount">$34,000.00</span>
+                          <span id="amount" class="scramble-text">$34,000.00</span>
+
+                          <script>
+                            function scrambleText(element, originalText, steps, interval) {
+                              const characters = '0123456789$,.'; // Characters used for scrambling
+                              let scrambled = originalText.split('');
+                              
+                              let step = 0;
+                              const scrambleInterval = setInterval(() => {
+                                step++;
+                                scrambled = scrambled.map((char, i) => 
+                                  Math.random() < 0.5 && step < steps ? characters.charAt(Math.floor(Math.random() * characters.length)) : originalText[i]
+                                );
+                                element.textContent = scrambled.join('');
+                        
+                                if (step >= steps) {
+                                  clearInterval(scrambleInterval);
+                                  element.textContent = originalText; // Restore original text
+                                }
+                              }, interval);
+                            }
+                        
+                            const span = document.querySelector('#amount');
+                            const originalText = '$34,000.00';
+                        
+                            // Run the animation once on page load
+                            scrambleText(span, originalText, 15, 100); // 15 steps, 100ms per step
+                        
+                            // Call the scrambleText function every 4 seconds after the initial run
+                            setInterval(() => {
+                              scrambleText(span, originalText, 15, 100);
+                            }, 4000); // 4 seconds interval
+                          </script>
+                        </body>
                       </div>
                   </div>
                   <div class="grid_card">
                       <div class="wrapper">
                           <div class="card">
-                              <a href="#">
+                              <a href="/assets/user/swap.html">
                                   <span><i class="material-icons">arrow_upward</i></span>
                                   <span>Send</span>
                               </a>
@@ -482,18 +519,66 @@
                       </table>
                   </div>
               </section>
-          </div>
       </main>
+      
 
       
       <footer class="dashboard_footer">
         <div class="wrapper">
-          <span>@ 2024 <a href="#">Creative Fortune</a>All Right Reserved</span>
+          <span>© 2024 <a href="/index.html">Creative Fortune</a>All Right Reserved</span>
           <span><a href="#">Purchase Now</a></span>
         </div>
       </footer>
 
-    </div>
+      <section class="bottom_nav">
+        <div class="wrapper">
+            <ul>
+                <li>
+                    <a href="/assets/user/dashboard.html">
+                        <i class="material-icons">dashboard</i>
+                        <span>Home</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="/assets/user/swap.html">
+                        <i class="material-icons">swap_calls</i>
+                        <span>Swap</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="/assets/user/dashboard.html">
+                        <i class="material-icons">history</i>
+                        <span>History</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="/assets/user/dashboard.html">
+                        <i class="material-icons">widgets</i>
+                        <span>Features</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="/assets/user/dashboard.html">
+                        <i class="material-icons">store</i>
+                        <span>Market</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+      </section>
+
 
 
     <!-- ============JAVASCRIPT-LINKS============= -->

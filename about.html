@@ -465,36 +465,8 @@
 
 
 
-        <style>
-            .cursor {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 2px solid #00aaff;
-            background-color: rgba(0, 0, 0, 0.8);
-            pointer-events: none; /* Prevent cursor interaction */
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s ease;
-        }
-        </style>
-     <div class="cursor"></div>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Select the cursor element
-            const cursor = $('.cursor');
 
-            // Listen for mouse movement
-            $(document).mousemove(function (e) {
-                // Set the position of the cursor element based on the mouse coordinates
-                cursor.css({
-                    left: e.pageX + 'px',
-                    top: e.pageY + 'px'
-                });
-            });
-        });
-    </script>
+
 
     <!-- ============ PRELOADER ANIMATION============= -->
     <section class="preloader_animation">

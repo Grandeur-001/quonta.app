@@ -1,0 +1,531 @@
+<div class="box-body">
+    <div class="col-12 col-sm-12 col-xxl mb-5">
+        <div class="input-group input-group-navbar">
+            <input type="text" class="form-control bg-dark text-light" wire:model="searchTerm" placeholder="Search Users by name or email" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search align-middle"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+            <ul class="col-12 col-sm-12 col-xxl mb-5 mt-5">
+                </ul>
+    <div class="table-responsive">
+        <table id="example5" class="table table-hover">
+            <thead class="d-none">
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=D&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Developer</strong></a>
+                                <small class="sidetitle">dev@dailyminning.com</small>
+                            </p>
+                            <p class="mb-0">Belgium</p>
+                        </td>
+                        <td>
+                            $0.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(1)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(1)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(1)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(1)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(1)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(1)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(1)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(1)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=A&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Administrator</strong></a>
+                                <small class="sidetitle">admin@dailyminning.com</small>
+                            </p>
+                            <p class="mb-0">Belgium</p>
+                        </td>
+                        <td>
+                            $53,850.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(2)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(2)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(2)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(2)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(2)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(2)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(2)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(2)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=S++E&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Silver  Ethan</strong></a>
+                                <small class="sidetitle">donaldrobinson1605@gmail.com</small>
+                            </p>
+                            <p class="mb-0">United States</p>
+                        </td>
+                        <td>
+                            $169,871.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(3)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(3)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(3)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(3)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(3)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(3)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(3)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(3)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=G&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Grace</strong></a>
+                                <small class="sidetitle">grace@yopmail.com</small>
+                            </p>
+                            <p class="mb-0">Antarctica</p>
+                        </td>
+                        <td>
+                            $0.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(4)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(4)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(4)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(4)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(4)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(4)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(4)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(4)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=N&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Name</strong></a>
+                                <small class="sidetitle">feukatreimufra-4415@yopmail.com</small>
+                            </p>
+                            <p class="mb-0">Anguilla</p>
+                        </td>
+                        <td>
+                            $0.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(5)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(5)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(5)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(5)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(5)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(5)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(5)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(5)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=L+P&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Leslie Pragg</strong></a>
+                                <small class="sidetitle">covecksexchange@gmail.com</small>
+                            </p>
+                            <p class="mb-0">Netherlands Antilles</p>
+                        </td>
+                        <td>
+                            $140,200.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(6)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(6)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(6)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(6)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(6)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(6)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(6)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(6)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=L&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Lydia</strong></a>
+                                <small class="sidetitle">lydia@yopmail.com</small>
+                            </p>
+                            <p class="mb-0">Antarctica</p>
+                        </td>
+                        <td>
+                            $0.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(8)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(8)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(8)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(8)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(8)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(8)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(8)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(8)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=E+c&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Elsa carmilla</strong></a>
+                                <small class="sidetitle">elsacarmilla322@gmail.com</small>
+                            </p>
+                            <p class="mb-0">Switzerland</p>
+                        </td>
+                        <td>
+                            $0.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(10)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(10)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(10)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(10)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(10)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(10)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(10)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(10)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=E&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Evelyn</strong></a>
+                                <small class="sidetitle">evelynuaeus300@gmail.com</small>
+                            </p>
+                            <p class="mb-0">Nigeria</p>
+                        </td>
+                        <td>
+                            $0.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(11)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(11)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(11)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(11)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(11)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(11)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(11)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(11)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="w-20"><i class="fa fa-square-o pt-15"></i></td>
+                        <td class="w-60">
+                            <a class="avatar avatar-lg status-success" href="#">
+                                <img src="https://ui-avatars.com/api/?name=C+A&amp;color=7F9CF5&amp;background=EBF4FF" alt="...">
+                            </a>
+                        </td>
+                        <td class="w-300">
+                            <p class="mb-0">
+                                <a href="#"><strong>Cragen Anita</strong></a>
+                                <small class="sidetitle">cragenanita39@gmail.com</small>
+                            </p>
+                            <p class="mb-0">Canada</p>
+                        </td>
+                        <td>
+                            $0.00
+                        </td>
+                        <td>
+                            <span class="badge  badge-success "> Enabled </span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-rounded btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-logout"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                    <a class="dropdown-item" wire:click="edit(12)">Edit</a>
+                                    <a class="dropdown-item" wire:click="delete(12)">Delete</a>
+                                    <a class="dropdown-item" wire:click="disableenable(12)"> Disable </a>
+                                    <a class="dropdown-item" wire:click="addbalance(12)">Add Balance</a>
+                                    <!-- <a class="dropdown-item" wire:click="createtransaction(12)">Create Transaction</a> -->
+                                    <a class="dropdown-item" wire:click="email(12)">Email</a>
+                                    <a class="dropdown-item" wire:click="verifyemail(12)">Verify Email</a>
+                                    <div wire:loading="" wire:target="updatetransaction">
+                                        <div class="spinner-grow spinner-grow-sm text-dark mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-primary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <div class="spinner-grow spinner-grow-sm text-secondary mr-2" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <a class="dropdown-item" wire:click="kyc(12)">Verify KYC</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                                </tbody>
+        </table>
+    </div>
+    <div>
+                
+    <nav>
+        <ul class="pagination">
+            
+                                <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
+                    <span class="page-link" aria-hidden="true">‹</span>
+                </li>
+            
+            
+                                
+                
+                
+                                                                                                    <li class="page-item active" wire:key="paginator-page-1-page-1" aria-current="page"><span class="page-link">1</span></li>
+                                                                                                            <li class="page-item" wire:key="paginator-page-1-page-2"><button type="button" class="page-link" wire:click="gotoPage(2, 'page')">2</button></li>
+                                                                                                            <li class="page-item" wire:key="paginator-page-1-page-3"><button type="button" class="page-link" wire:click="gotoPage(3, 'page')">3</button></li>
+                                                                                                            <li class="page-item" wire:key="paginator-page-1-page-4"><button type="button" class="page-link" wire:click="gotoPage(4, 'page')">4</button></li>
+                                                                                                            <li class="page-item" wire:key="paginator-page-1-page-5"><button type="button" class="page-link" wire:click="gotoPage(5, 'page')">5</button></li>
+                                                                                                            <li class="page-item" wire:key="paginator-page-1-page-6"><button type="button" class="page-link" wire:click="gotoPage(6, 'page')">6</button></li>
+                                                                                                            <li class="page-item" wire:key="paginator-page-1-page-7"><button type="button" class="page-link" wire:click="gotoPage(7, 'page')">7</button></li>
+                                                                                                            <li class="page-item" wire:key="paginator-page-1-page-8"><button type="button" class="page-link" wire:click="gotoPage(8, 'page')">8</button></li>
+                                                                                                            <li class="page-item" wire:key="paginator-page-1-page-9"><button type="button" class="page-link" wire:click="gotoPage(9, 'page')">9</button></li>
+                                                                                    
+            
+                                <li class="page-item">
+                    <button type="button" dusk="nextPage" class="page-link" wire:click="nextPage('page')" wire:loading.attr="disabled" rel="next" aria-label="Next »">›</button>
+                </li>
+                        </ul>
+    </nav>
+</div>
+
+</div>
