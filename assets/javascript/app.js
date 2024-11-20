@@ -18,7 +18,6 @@
     measurementId: "G-YW8EBRRKZS"
   };
 
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app); // Firestore instance
@@ -53,10 +52,11 @@ signUpform.addEventListener(`submit`, async (form_event) => {
     const emailRegex = /(gmail.com|yahoo.com|onmail.com|outlook.com|yahoo.co.uk)/i
     // /////////
     const MainErrorMessage = document.querySelector(`.error_message`);
+    
+    // form inputs
     const firstNameInput = document.querySelector(`#email_input`).value;
     const lastNameInput = document.querySelector(`#email_input`).value;
     const emailInput = document.querySelector(`#email_input`).value;
-    // const phoneInput = Number(document.querySelector(`#phone_input`).value);
     const passwordInput = document.querySelector(`#password_input`).value;
     const conformPasswordInput = document.querySelector(`#confirm_password_input`).value;
     // //////////
@@ -164,16 +164,16 @@ signUpform.addEventListener(`submit`, async (form_event) => {
 
                   } else {
                     MainErrorMessage.textContent = `Error: ${error.message}`;
-                                
+
+                    // form_event.preventDefault();
+                  }
+                                                  
                     preloaderAnimation.classList.add(`show_preloader`);
 
                     setTimeout(() => {
                         preloaderAnimation.classList.remove(`show_preloader`);
                         window.location.href = "login.html";
                     },9000);
-                    // form_event.preventDefault();
-
-                  }
         }
     }
 });
