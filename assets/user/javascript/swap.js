@@ -1,5 +1,4 @@
 
-// Crypto List (previously imported from cryptoData.js)
 const cryptoList = [
     {
       id: '1',
@@ -51,7 +50,6 @@ const cryptoList = [
     }
   ];
   
-  // Initialize the dropdowns
   function initializeDropdowns() {
     const dropdowns = document.querySelectorAll('.crypto-select');
   
@@ -66,7 +64,6 @@ const cryptoList = [
       dropdown.appendChild(menu);
 
   
-      // Create dropdown items
       cryptoList.forEach((crypto) => {
         const item = createDropdownItem(crypto);
         menu.appendChild(item);
@@ -77,12 +74,10 @@ const cryptoList = [
         });
       });
   
-      // Toggle dropdown
       button.addEventListener('click', (e) => {
         e.stopPropagation();
         menu.classList.toggle('show');
   
-        // Close other dropdowns
         dropdowns.forEach((other) => {
           if (other !== dropdown) {
             other.querySelector('.dropdown-menu').classList.remove('show');
@@ -91,7 +86,6 @@ const cryptoList = [
       });
     });
   
-    // Close dropdowns when clicking outside
     document.addEventListener('click', () => {
       document.querySelectorAll('.dropdown-menu').forEach((menu) => {
         menu.classList.remove('show');
@@ -131,7 +125,6 @@ const cryptoList = [
   
   
   
-  // Main entry point
   document.addEventListener('DOMContentLoaded', () => {
     initializeDropdowns();
     setupTradingWidgets();

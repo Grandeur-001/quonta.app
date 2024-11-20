@@ -21,6 +21,10 @@
 
     <!-- ============FONT-AWESOME-LINKS============= -->
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+
+    <!-- ============JAVASCRIPT-LINKS============= -->
+    <script type="module" src="/assets/javascript/login.js" defer></script>
+
 </head>
 <style>
     @keyframes flash {
@@ -75,7 +79,8 @@ html{
                 </div>
             </header>
 
-            <form action="" method="" class="form">
+            <form action="" method="" class="form" id="login_form" >
+                <div id="error" class="error_message">Error Message !!!</div>
                 <div class="input-group">
                     <input type="text" id="email_input" required>
                     <label for="">Email Address</label>
