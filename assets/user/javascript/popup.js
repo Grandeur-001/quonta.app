@@ -60,3 +60,17 @@ profileBox.addEventListener('click', (event) => {
 notificationBox.addEventListener('click', (event) => {
     event.stopPropagation();
 });
+
+document.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      // Prevent the default link navigation (page refresh)
+      event.preventDefault();
+  
+      // Get the href attribute of the clicked link
+      const url = link.getAttribute('href');
+  
+      // Use window.location to navigate to the desired page without refreshing
+      window.location.href = url;
+    });
+});
+
