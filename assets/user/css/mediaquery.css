@@ -36,6 +36,8 @@
     .dashboard_footer{
         margin-left: 0;
         font-size: 10px;
+        margin-bottom: 80px;
+        
     }
     .dashboard_footer > .wrapper{
         padding-inline: 3px;

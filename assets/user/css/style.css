@@ -674,6 +674,7 @@ border-radius: 8px;
     background: var(--surface);
     bottom: 0;
     display: none;
+    
 }
 .bottom_nav .wrapper{
     display: flex;
