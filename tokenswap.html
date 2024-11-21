@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Exchange</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e2f;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background-color: #2a2a4e;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, select, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #6c63ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5249c4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Crypto Exchange</h1>
+    <div>
+      <label for="crypto-pay">You Pay</label>
+      <input type="number" id="amount-pay" placeholder="Amount" step="0.01">
+      <select id="crypto-pay">
+        <option value="BTC">Bitcoin (BTC)</option>
+        <option value="ETH">Ethereum (ETH)</option>
+        <option value="USDT">Tether (USDT)</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="crypto-receive">You Receive</label>
+      <input type="text" id="amount-receive" placeholder="Amount" disabled>
+      <select id="crypto-receive">
+        <option value="BTC">Bitcoin (BTC)</option>
+        <option value="ETH">Ethereum (ETH)</option>
+        <option value="USDT">Tether (USDT)</option>
+      </select>
+    </div>
+    <button id="exchange-button">Exchange Now</button>
+  </div>
+
+  <script>
+    const API_KEY = "your-api-key-here"; // Replace with your CoinMarketCap API Key
+    const baseUrl = "https://pro-api.coinmarketcap.com/v1/tools/price-conversion";
+
+    document.getElementById("exchange-button").addEventListener("click", async () => {
+      const amount = document.getElementById("amount-pay").value;
+      const from = document.getElementById("crypto-pay").value;
+      const to = document.getElementById("crypto-receive").value;
+
+      if (!amount || amount <= 0) {
+        alert("Please enter a valid amount!");
+        return;
+      }
+
+      try {
+        const response = await fetch(`${baseUrl}?amount=${amount}&symbol=${from}&convert=${to}`, {
+          headers: {
+            "X-CMC_PRO_API_KEY": API_KEY,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch exchange rate");
+        }
+
+        const data = await response.json();
+        const rate = data.data.quote[to].price;
+        document.getElementById("amount-receive").value = rate.toFixed(2);
+      } catch (error) {
+        alert("Unable to fetch exchange rates. Try again later.");
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>
