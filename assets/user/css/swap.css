@@ -60,6 +60,24 @@
     flex-direction: column;
     gap: 1.25rem;
   }
+
+  .error_message{
+    padding: 5px;
+    background: rgba(190, 31, 55, 0.201);
+    text-align: center;
+    color: rgba(255, 0, 38, 0.737);
+    /* border: 1px solid rgba(255, 0, 38, 0.507); */
+    border-radius: 5px;
+    font-family: sans-serif;
+    transition: all 0.7s ease-in-out;
+    font-size: 11px;
+    font-weight: bold;
+    width: 100%;
+    animation: headShake  1s linear infinite;
+    font-family: PRO-FONT4;
+    letter-spacing: 0.8px;
+    display: none;
+}
   
   .input-group {
     background: rgba(255, 255, 255, 0.05);
@@ -92,6 +110,7 @@
     color: var(--text-secondary);
     opacity: 0.5;
   }
+
   
   .crypto-select {
     margin-top: 0.75rem;
@@ -214,6 +233,9 @@
     transition: all 0.2s ease;
     width: 100%;
     margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .exchange-btn:hover {

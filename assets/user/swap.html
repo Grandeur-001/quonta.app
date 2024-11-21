@@ -223,11 +223,12 @@
         <section class="content">
             <div class="exchange-container">
                 <form class="exchange-calculator">
+                    <div id="error" class="error_message"> error!</div>
                     <div class="input-group">
                         <label class="input-label">You Pay</label>
-                        <input type="text" class="form-control" placeholder="0.00" inputmode="" id="amount_">
+                        <input type="number" class="form-control" placeholder="0.00"  id="input-amount">
                         <div class="crypto-select">
-                            <button type="button" class="select-btn" data-dropdown="from">
+                            <button type="button" class="select-btn select-btn1" data-dropdown="from">
                                 <span>Select Crypto</span>
                             </button>
                         </div>
@@ -241,15 +242,15 @@
     
                     <div class="input-group">
                         <label class="input-label">You Receive</label>
-                        <input type="text" class="form-control" placeholder="0.00" disabled>
+                        <input type="text" class="form-control" placeholder="0.00" disabled id="recieve-amount">
                         <div class="crypto-select">
-                            <button type="button" class="select-btn" data-dropdown="to">
+                            <button type="button" class="select-btn select-btn2" data-dropdown="to">
                                 <span>Select Crypto</span>
                             </button>
                         </div>
                     </div>
     
-                    <button type="submit" class="exchange-btn">Exchange Now</button>
+                    <div  class="exchange-btn" id="exchange-btn">Exchange Now</div>
                 </form>
             </div>
 
@@ -631,7 +632,8 @@
             <div class="dropdown-header">Select Currency</div>
             <!-- Dropdown items will be dynamically inserted here -->
         </div>
-    
+        
+        
       </main>
 
       
