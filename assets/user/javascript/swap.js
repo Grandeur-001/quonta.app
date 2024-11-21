@@ -159,59 +159,42 @@ let button;
     button.dataset.cryptoId = crypto.id;
   }
   
-
   
 document.getElementById(`exchange-btn`).addEventListener(`click`, async () => {
-    let selectBtn1 = document.querySelector(`.select-btn1`);
-    let selectBtn2 = document.querySelector(`.select-btn2`);
+  
+  const errorMessage = document.querySelector(`#error`);
+  let selectBtn1 = document.querySelector(`.select-btn1`);
+  let selectBtn2 = document.querySelector(`.select-btn2`);
+
+  if(selectBtn1.querySelector('p')){
     let ptag1 = selectBtn1.querySelector('p');
     let ptag2 = selectBtn2.querySelector('p');
-    let dataValue1 = ptag1.getAttribute('data-value');
     let dataValue2 = ptag2.getAttribute('data-value');
-    if (selectBtn1.querySelector('p')) {
-      console.log('Data-value:', dataValue1);
-    } else {
-      console.log('No <p> tag found inside the button.');
-    }
-    if (selectBtn2.querySelector('p')) {
-      console.log('Data-value:', dataValue2);
-    } else {
-      console.log('No <p> tag found inside the button.');
-    }
-
+    let dataValue1 = ptag1.getAttribute('data-value');
 
     const inputAmount = Number(document.querySelector(`#input-amount`).value);
-    const errorMessage = document.querySelector(`#error`);
-    if (inputAmount <= 0) {
-      errorMessage.style.setProperty(
-        `display`,
-        `block`
-      );
-      errorMessage.textContent = "Please Provide an amount";
-      console.log("No number")
-      return;
-    }else{
-      errorMessage.style.setProperty(
-        `display`,
-        `none`
-      );
-      console.log(inputAmount);
-    }
 
     const prices = await fetchPrices();
-    if (!prices) {
-      errorMessage.style.setProperty(
-        `display`,
-        `block`
-      );
-
+    if(!inputAmount || inputAmount <= 0) {
+      errorMessage.style.display = `block`;
+      errorMessage.textContent = "Please enter a valid amount.";
+      return;
+    }
+    else if (!prices) {
       errorMessage.textContent = "Failed to fetch prices. Please try again later.";
       return;
-    }else{
-      errorMessage.style.setProperty(
-        `display`,
-        `none`
-      );
+    }
+
+    else{
+      errorMessage.textContent = "Successful";
+      errorMessage.style.background = `rgba(31, 190, 44, 0.201)`;
+      errorMessage.style.color = `rgba(0, 255, 21, 0.737)`;
+
+      setTimeout(() => {
+        errorMessage.style.background = `rgba(190, 31, 55, 0.201)`;
+        errorMessage.style.color = `rgba(255, 0, 38, 0.737)`;
+        errorMessage.style.display = `none`;
+      }, 3000);
     }
 
     const fromPrice = prices[COINS[dataValue1]].usd;
@@ -222,10 +205,13 @@ document.getElementById(`exchange-btn`).addEventListener(`click`, async () => {
 
   
     document.querySelector(`#recieve-amount`).value = `${toAmount.toFixed(6)} ${dataValue2}`;
-    recieveAmount = `You will receive ${toAmount.toFixed(6)} ${dataValue2}. Exchange rate: 1 ${dataValue1} = ${(fromPrice / toPrice).toFixed(6)} ${dataValue2}`;
-    // errorMessage.textContent = `You will receive ${toAmount.toFixed(6)} ${dataValue2}. Exchange rate: 1 ${dataValue1} = ${(fromPrice / toPrice).toFixed(6)} ${dataValue2}`;
-    // recieveAmount = `You will receive ${toAmount.toFixed(6)} ${toCoin}. Exchange rate: 1 ${fromCoin} = ${(fromPrice / toPrice).toFixed(6)} ${toCoin}`
-
+    // recieveAmount = `You will receive ${toAmount.toFixed(6)} ${dataValue2}. Exchange rate: 1 ${dataValue1} = ${(fromPrice / toPrice).toFixed(6)} ${dataValue2}`;
+  }
+  else{
+    errorMessage.style.display = `block`;
+    errorMessage.textContent = "Select currency"
+  }
+  
 
 
 
