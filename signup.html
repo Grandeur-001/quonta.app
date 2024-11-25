@@ -23,9 +23,7 @@
     <!-- ============FONT-AWESOME-LINKS============= -->
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <!-- ============JAVASCRIPT-LINKS============= -->
-     <script type="module" src="/assets/javascript/app.js" defer></script>
-     <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/core.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/aes.js"></script>
+
 
 
 </head>
@@ -116,7 +114,7 @@ html{
                     <input type="password" id="password_input" required>
                     <label for="">Password</label>
                     <div class="show_password">
-                        <div class="image_wrapper" id="eye_icon_container" style="display: none;">
+                        <div class="image_wrapper" id="eye_icon_container" style="display:;">
                             <img id="show_hide" src="/assets/svg/eye-off-svgrepo-com.svg" alt="">
                             <!-- <img src="/assets/svg/eye-svgrepo-com.svg" alt=""> -->
                         </div>
@@ -125,21 +123,6 @@ html{
                         const passwordInput = document.querySelector(`#password_input`);
                         const showPassword = document.querySelector(`#show_hide`);
                         const eyeIconWrapper = document.querySelector(`#eye_icon_container`);
-
-                        passwordInput.addEventListener(`keydown`, () => {
-                            if(passwordInput.value === ``){
-                                eyeIconWrapper.style.setProperty(
-                                    `display`,
-                                    `none`
-                                )
-                            }
-                            else{
-                                eyeIconWrapper.style.setProperty(
-                                    `display`,
-                                    `block`
-                                )
-                            };
-                        });
 
                         showPassword.addEventListener(`click`, () => {
 
@@ -232,6 +215,8 @@ html{
 </body>
         <!-- ============JAVASCRIPT-LINKS============= -->
         <script src="assets/javascript/function.js"></script>
+        <script src="/assets/javascript/app.js"></script>
+
           
 
 </html>
