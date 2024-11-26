@@ -1,0 +1,52 @@
+@media only screen and (max-width: 1135px) {
+    .main_content{
+        /* width: 70%; */
+    }
+    
+    .main_content > .wrapper .wallet > .wrapper .grid_card > .wrapper{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+@media only screen and (max-width: 670px) {
+    .sidebar{
+        display: none;
+    }
+    .main_content{
+        width: 100%;
+        margin-left: 0;
+
+    }
+    .main_content > .wrapper .wallet > .wrapper .grid_card > .wrapper{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .main_content > .wrapper .wallet > .wrapper .wallet_container{
+        padding-left: 0;
+        border-left: none;
+    }    
+    .main_content > .wrapper .wallet > .wrapper .grid_card {
+        padding-left: 0;
+        border-left: none;
+        display: none;
+    }
+    .semi_grid_cards{
+        display: block;
+    }
+    
+    .dashboard_footer{
+        margin-left: 0;
+        font-size: 10px;
+        margin-bottom: 80px;
+        
+    }
+    .dashboard_footer > .wrapper{
+        padding-inline: 3px;
+    }
+    
+    .bottom_nav{
+        display: block;
+    }
+    
+    
+
+}
